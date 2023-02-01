@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-border-color: #4774B3; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.MainUILoginSignup">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-border-color: #4774B3; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainUILoginSignup">
    <children>
       <Pane layoutX="502.0" layoutY="48.0" prefHeight="420.0" prefWidth="336.0" style="-fx-background-color: #dcdcdc;">
          <children>
@@ -43,7 +43,7 @@
             </ImageView>
             <ImageView fitHeight="93.0" fitWidth="95.0" layoutX="122.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icons/group%20(1).png" />
+                  <Image url="@../icons/group.png" />
                </image>
             </ImageView>
 
@@ -56,7 +56,7 @@
       </ImageView>
       <ImageView fitHeight="196.0" fitWidth="207.0" layoutX="139.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icons/open-book%20(1).png" />
+            <Image url="@../icons/open-book (1).png" />
          </image>
       </ImageView>
       <Text layoutX="182.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Helvetica (sans-serif);" text="IUG" textAlignment="CENTER" wrappingWidth="110.0">

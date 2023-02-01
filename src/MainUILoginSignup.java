@@ -1,7 +1,7 @@
-package data_pro;
 
-import data_pro.DataBase.RWDatabase;
-import data_pro.DataBase.Users;
+
+import DataBase.RWDatabase;
+import DataBase.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

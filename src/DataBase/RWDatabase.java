@@ -1,4 +1,4 @@
-package data_pro.DataBase;
+package DataBase;
 
 import java.io.*;
 import java.util.*;
@@ -13,11 +13,11 @@ public class RWDatabase {
     //A One-To-many relation datastructures between user and his books
     public static HashMap<Integer , LinkedList<Book>> OwnedBooks = new HashMap<>();
     //Books objects Data content file
-    private static final String filePath = "src/data_pro/DataBase/BooksDB.txt" ;
+    private static final String filePath = "src/DataBase/BooksDB.txt" ;
     //users Data file
-    private static final String usersFilePath = "src/data_pro/DataBase/UsersDB.csv" ;
+    private static final String usersFilePath = "src/DataBase/UsersDB.csv" ;
     //owned books data file
-    private static final String ownedBooksPath = "src/data_pro/DataBase/UsersBooksRelationDB.csv" ;
+    private static final String ownedBooksPath = "src/DataBase/UsersBooksRelationDB.csv" ;
 
     public static void main(String[] args) throws Exception {
         reader();

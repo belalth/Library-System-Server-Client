@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="702.0" style="-fx-border-width: 2px; -fx-background-color: #dcdcdc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="702.0" style="-fx-border-width: 2px; -fx-background-color: #dcdcdc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PaneAddUserOrBook">
    <children>
       <TextField fx:id="publisher_new_book" focusTraversable="false" layoutX="105.0" layoutY="269.0" prefHeight="40.0" prefWidth="218.0" promptText="publisher" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
       <TextField fx:id="title_new_book" focusTraversable="false" layoutX="104.0" layoutY="92.0" prefHeight="40.0" prefWidth="218.0" promptText="titile" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />

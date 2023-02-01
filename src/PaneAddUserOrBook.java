@@ -1,6 +1,5 @@
-package data_pro;
 
-import data_pro.DataBase.*;
+import DataBase.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

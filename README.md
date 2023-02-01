@@ -1,7 +1,7 @@
 <h1 align="center">Library Management System</h1>
 <h3 align="center"> This Project is part of Days and Days of work 
-even though is not in it's last version yet but we Done 100% of the Back End work and most of the styling, and Inshallah in the project Discussion will be in its most modern, stylesh, stable version.<span>written with all❤             <h5>                 Belal   </h5>     <span> </h3>
-<h1></h1>
+even though is not in it's last version yet but we Done 100% of the Back End work and most of the styling, and Inshallah in the project Discussion will be in its most modern, stylesh, stable version.<span>written with all❤             <h5>                 Belal   </h5>     </h3>
+
 
   
 ![Version](https://img.shields.io/badge/java-19.0.1-green.svg?style=for-the-badge)
@@ -73,20 +73,6 @@ This lib is a compnent for JavaFx:   [JavaFx](https://openjfx.io/)
 
 We have a great workstation here, then I've using a maven  and Java and JavaFx +19 on Windows. (I really want to test in other systems in future).
 
-# 🚀 WorkFlow
 
-We split the work between us Eng.Baraa  take most of main interfaces and the book/users objects and the add/remove user/book cnotrollers structer.
-And I Eng.Belal was working on the Search algorithms and tableViews details and the ui/ux styling and displaying the content of the right side panels and editing them.
 
-should we mention that we used Git with our work, github make it easy to code without even see each oter it was really game changing and alot of skills we learnt in this chapter of out lifes.
-to see the public Github repository [gitHub](https://github.com/62656c616c412e/LibraryManegmentSystem)
 
-Best regards 
-
-Belal A. Thabet 120203079 belalth4real@gmail.com
-
-Baraa M. Shaat  120200652 baraashaat144@gmail.com
-
-<p align="center">
-  <img src="pics/us.jpg"  />
-</p>

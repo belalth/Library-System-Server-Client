@@ -1,7 +1,7 @@
-package data_pro;
 
-import data_pro.DataBase.Book;
-import data_pro.DataBase.RWDatabase;
+
+import DataBase.Book;
+import DataBase.RWDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static data_pro.PaneMyLibrary.userId;
+
 import static java.lang.Character.isDigit;
 
 public class PaneUserTableView_users implements Initializable {
@@ -119,13 +119,13 @@ public class PaneUserTableView_users implements Initializable {
 
     @FXML
     private void BuyBook(MouseEvent event) throws IOException, InterruptedException {
-        if (RWDatabase.OwnedBooks.get(userId).contains(booksViewTable.getSelectionModel().getSelectedItem())){
+        if (RWDatabase.OwnedBooks.get(PaneMyLibrary.userId).contains(booksViewTable.getSelectionModel().getSelectedItem())){
             textMessage.setFill(Paint.valueOf("red"));
             textMessage.setText("You Have This Book Already!");
         }
          else if (booksViewTable.getSelectionModel().getSelectedItem() != null){
             //adding the book to the library of user
-            RWDatabase.OwnedBooks.get(userId).add(booksViewTable.getSelectionModel().getSelectedItem());
+            RWDatabase.OwnedBooks.get(PaneMyLibrary.userId).add(booksViewTable.getSelectionModel().getSelectedItem());
             //using the dicresing method to dicrease books quantity-1
             RWDatabase.BooksList.get(booksViewTable.getSelectionModel().getSelectedItem().getId()).dicreseQuantity();
             //writing the edited book with quantity-1

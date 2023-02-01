@@ -1,5 +1,5 @@
 
-package data_pro.DataBase;
+package DataBase;
 
 public class Book {
     public int id;
