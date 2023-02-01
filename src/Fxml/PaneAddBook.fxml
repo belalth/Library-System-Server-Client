@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="702.0" style="-fx-border-width: 2px; -fx-background-color: #dcdcdc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+   <children>
+      <TextField fx:id="publisher_new_book" focusTraversable="false" layoutX="105.0" layoutY="269.0" prefHeight="40.0" prefWidth="218.0" promptText="publisher" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <TextField fx:id="title_new_book" focusTraversable="false" layoutX="104.0" layoutY="92.0" prefHeight="40.0" prefWidth="218.0" promptText="titile" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <Button defaultButton="true" layoutX="152.0" layoutY="354.0" mnemonicParsing="false" onAction="#AddNewBook" pickOnBounds="false" prefHeight="48.0" prefWidth="218.0" style="-fx-background-color: #bad0ec;" text="save" textFill="#07326e">
+         <font>
+            <Font name="SansSerif Bold" size="26.0" />
+         </font>
+      </Button>
+      <TextField fx:id="isbn_new_book" focusTraversable="false" layoutX="103.0" layoutY="210.0" prefHeight="40.0" prefWidth="218.0" promptText="isbn" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <TextField fx:id="total_new_book" focusTraversable="false" layoutX="371.0" layoutY="92.0" prefHeight="40.0" prefWidth="218.0" promptText="total pages" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <TextField fx:id="date_new_book" focusTraversable="false" layoutX="371.0" layoutY="210.0" prefHeight="40.0" prefWidth="218.0" promptText="xx/yy/zzzz" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <TextField fx:id="rating_new_book" focusTraversable="false" layoutX="371.0" layoutY="148.0" prefHeight="40.0" prefWidth="218.0" promptText="4.9" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <TextField fx:id="quantity_new_book" focusTraversable="false" layoutX="371.0" layoutY="269.0" prefHeight="40.0" prefWidth="218.0" promptText="quantity" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <TextField fx:id="auther_new_book" focusTraversable="false" layoutX="103.0" layoutY="148.0" prefHeight="40.0" prefWidth="218.0" promptText="auther" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
+      <Text fill="#07326e" layoutX="56.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Book To The Library " wrappingWidth="315.73670959472656">
+         <font>
+            <Font name="SansSerif Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="errorMessage" fill="#4576b9" layoutX="212.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.33668518066406">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

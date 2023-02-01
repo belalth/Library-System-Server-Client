@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="666.0" style="-fx-background-color: #dcdcdc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+    <children>
+        <Pane prefHeight="440.0" prefWidth="700.0" style="-fx-background-color: #dcdcdc;">
+            <children>
+                <Label fx:id="Create" layoutX="52.0" layoutY="36.0" prefHeight="33.0" prefWidth="218.0" text="Add New Student" textAlignment="CENTER" textFill="#163a66">
+                    <font>
+                        <Font name="SansSerif Bold" size="19.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="Textsecond_create" focusTraversable="false" layoutX="348.0" layoutY="152.0" prefHeight="40.0" prefWidth="212.0" promptText="last name" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3; -fx-background-color: #dcdcdc;" />
+                <TextField fx:id="Textgmail_create" focusTraversable="false" layoutX="98.0" layoutY="152.0" prefHeight="40.0" prefWidth="212.0" promptText="username@gmail.com" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3; -fx-background-color: #dcdcdc;" />
+                <Button fx:id="save_create" layoutX="136.0" layoutY="319.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="47.0" prefWidth="212.0" style="-fx-background-color: #bad0ec;" text="save data" textFill="#07326e">
+                    <font>
+                        <Font name="SansSerif Bold" size="23.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="Textfirst_create" focusTraversable="false" layoutX="348.0" layoutY="88.0" prefHeight="40.0" prefWidth="212.0" promptText="first name" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3; -fx-background-color: #dcdcdc;" />
+                <TextField fx:id="Textage_create" focusTraversable="false" layoutX="348.0" layoutY="212.0" prefHeight="40.0" prefWidth="212.0" promptText="age" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3; -fx-background-color: #dcdcdc;" />
+                <TextField fx:id="textfield_id_create" focusTraversable="false" layoutX="98.0" layoutY="88.0" prefHeight="40.0" prefWidth="212.0" promptText="123456" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3; -fx-background-color: #dcdcdc;" />
+                <PasswordField fx:id="Textpass_create" focusTraversable="false" layoutX="98.0" layoutY="212.0" prefHeight="40.0" prefWidth="212.0" promptText="new password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3; -fx-background-color: #dcdcdc;" />
+                <Label fx:id="print_create" layoutX="191.0" layoutY="275.0" prefHeight="26.0" prefWidth="269.0" textAlignment="CENTER" textFill="#1c61c1">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
