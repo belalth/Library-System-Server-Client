@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+   <children>
+      <Label fx:id="Create" layoutX="97.0" layoutY="14.0" prefHeight="33.0" prefWidth="127.0" text="add a new book" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="second_create" layoutX="37.0" layoutY="223.0" prefHeight="33.0" prefWidth="79.0" text="publisher" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="password_create" layoutX="50.0" layoutY="144.0" prefHeight="33.0" prefWidth="55.0" text="author" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="publisher_new_book" focusTraversable="false" layoutX="134.0" layoutY="228.0" promptText="name" />
+      <TextField fx:id="title_new_book" focusTraversable="false" layoutX="136.0" layoutY="110.0" prefHeight="25.0" prefWidth="149.0" promptText="name of the book" />
+      <Button fx:id="save_create" layoutX="104.0" layoutY="438.0" mnemonicParsing="false" onAction="#swithscene_log_admin_new_book" prefHeight="39.0" prefWidth="113.0" text="save data">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label fx:id="first_create" layoutX="55.0" layoutY="182.0" prefHeight="33.0" prefWidth="41.0" text="isbn" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="isbn_new_book" focusTraversable="false" layoutX="135.0" layoutY="186.0" promptText="first name" />
+      <Label fx:id="gmail_create" layoutX="59.0" layoutY="104.0" prefHeight="33.0" prefWidth="41.0" text="title" textAlignment="RIGHT">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="age_create" layoutX="27.0" layoutY="266.0" prefHeight="33.0" prefWidth="87.0" text="total pages" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="total_new_book" focusTraversable="false" layoutX="134.0" layoutY="270.0" promptText="number" />
+      <Label fx:id="id_create" layoutX="47.0" layoutY="67.0" prefHeight="33.0" prefWidth="66.0" text="book id" textAlignment="RIGHT">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id_new_book" focusTraversable="false" layoutX="136.0" layoutY="70.0" promptText="123456" />
+      <Label fx:id="print_create" layoutX="70.0" layoutY="480.0" prefHeight="26.0" prefWidth="182.0" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="second_create1" layoutX="5.0" layoutY="349.0" prefHeight="33.0" prefWidth="113.0" text="published date" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="date_new_book" focusTraversable="false" layoutX="132.0" layoutY="352.0" promptText="xx/yy/zzzz" />
+      <Label fx:id="first_create1" layoutX="47.0" layoutY="306.0" prefHeight="33.0" prefWidth="55.0" text="rating" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rating_new_book" focusTraversable="false" layoutX="131.0" layoutY="310.0" promptText="4.9" />
+      <Label fx:id="age_create1" layoutX="41.0" layoutY="388.0" prefHeight="33.0" prefWidth="66.0" text="quantity" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quantity_new_book" focusTraversable="false" layoutX="131.0" layoutY="392.0" promptText="number " />
+      <TextField fx:id="auther_new_book" focusTraversable="false" layoutX="137.0" layoutY="149.0" promptText="name" />
+   </children>
+</AnchorPane>

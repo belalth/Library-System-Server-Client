@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="194.0" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+   <children>
+      <Label fx:id="welcome" layoutX="110.0" layoutY="29.0" prefHeight="33.0" prefWidth="99.0" text="delete book" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="id_welcome" layoutX="36.0" layoutY="78.0" prefHeight="33.0" prefWidth="87.0" text="ID_number" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="delete_book" focusTraversable="false" layoutX="131.0" layoutY="85.0" promptText="123456" />
+      <Button layoutX="117.0" layoutY="131.0" mnemonicParsing="false" onAction="#swithscene_save_delete_book" prefHeight="38.0" prefWidth="87.0" text="save">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

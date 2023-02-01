@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="412.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+    <children>
+        <AnchorPane fx:id="anchorPane" layoutX="331.0" layoutY="59.0" prefHeight="294.0" prefWidth="319.0" style="-fx-background-color: #D1D1D1; -fx-border-color: #ADD8E6; -fx-border-width: 1px;">
+            <children>
+                <TextField fx:id="textfield_id_welcome" focusTraversable="false" layoutX="58.0" layoutY="59.0" onKeyTyped="#idWelcome" prefHeight="26.0" prefWidth="220.0" promptText="123456" style="-fx-background-color: #f7feff;" />
+                <PasswordField fx:id="textfield_pass_welcome" layoutX="58.0" layoutY="126.0" prefHeight="26.0" prefWidth="220.0" promptText="password" style="-fx-background-color: #f7feff;" />
+                <Button fx:id="login_welcome" defaultButton="true" layoutX="59.0" layoutY="181.0" mnemonicParsing="false" onAction="#swithslogin" onKeyTyped="#swithslogin" prefHeight="16.0" prefWidth="220.0" style="-fx-background-color: #91cddf; -fx-font-family: Helvetica (sans-serif);" text="Login" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Bold Italic" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="sign_up_welcome" layoutX="59.0" layoutY="226.0" mnemonicParsing="false" onAction="#swithscene_add_a_book" prefHeight="26.0" prefWidth="220.0" style="-fx-background-color: #ffffff; -fx-font-family: Helvetica (sans-serif);" text="sign up" textFill="#91cddf">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </Button>
+                <Text fx:id="text_loginStart_Windows" fill="RED" layoutX="73.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="192.5367431640625" />
+            <FontAwesomeIconView layoutX="31.0" layoutY="76.0" />
+            <FontAwesomeIconView layoutX="31.0" layoutY="143.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

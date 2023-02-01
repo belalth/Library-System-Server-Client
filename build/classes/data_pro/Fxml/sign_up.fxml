@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="398.0" prefWidth="320" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.MainUILoginSignup">
+   <children>
+      <Label fx:id="Create" layoutX="91.0" layoutY="14.0" prefHeight="33.0" prefWidth="149.0" text="Create an account" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="second_create" layoutX="37.0" layoutY="223.0" prefHeight="33.0" prefWidth="79.0" text="last name" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="password_create" layoutX="18.0" layoutY="144.0" prefHeight="33.0" prefWidth="113.0" text="new password" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Textsecond_create" focusTraversable="false" layoutX="134.0" layoutY="228.0" promptText="last name" />
+      <TextField fx:id="Textgmail_create" focusTraversable="false" layoutX="103.0" layoutY="110.0" prefHeight="25.0" prefWidth="182.0" promptText="username@gmail.com" />
+      <Button fx:id="save_create" layoutX="153.0" layoutY="338.0" mnemonicParsing="false" onAction="#SignUpButton" prefHeight="39.0" prefWidth="113.0" text="save data">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label fx:id="first_create" layoutX="34.0" layoutY="181.0" prefHeight="33.0" prefWidth="87.0" text="first name" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Textfirst_create" focusTraversable="false" layoutX="134.0" layoutY="186.0" promptText="first name" />
+      <Label fx:id="gmail_create" layoutX="34.0" layoutY="104.0" prefHeight="33.0" prefWidth="55.0" text="gmail" textAlignment="RIGHT">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="age_create" layoutX="57.0" layoutY="262.0" prefHeight="33.0" prefWidth="34.0" text="age" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Textage_create" focusTraversable="false" layoutX="133.0" layoutY="268.0" promptText="age" />
+      <Label fx:id="id_create" layoutX="34.0" layoutY="62.0" prefHeight="33.0" prefWidth="87.0" text="id number" textAlignment="RIGHT">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textfield_id_create" focusTraversable="false" layoutX="135.0" layoutY="69.0" promptText="123456" />
+      <PasswordField fx:id="Textpass_create" focusTraversable="false" layoutX="134.0" layoutY="148.0" promptText="new password" />
+      <Label fx:id="print_create" layoutX="69.0" layoutY="304.0" prefHeight="26.0" prefWidth="182.0" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="51.0" layoutY="338.0" mnemonicParsing="false" onAction="#signUp_back_button" prefHeight="40.0" prefWidth="79.0" text="Back" />
+   </children>
+</AnchorPane>
