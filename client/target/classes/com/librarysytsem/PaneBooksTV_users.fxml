@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="721.0" style="-fx-background-color: #dcdcdc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysytsem.PaneUserTableView_users">
+    <children>
+        <TextField fx:id="BookSearchBar" layoutX="14.0" layoutY="17.0" prefHeight="38.0" prefWidth="386.0" promptText="search : name , author , isbn " style="-fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: #4774B3;" />
+        <TableView fx:id="booksViewTable" layoutX="14.0" layoutY="64.0" onMouseClicked="#selectedItem" prefHeight="374.0" prefWidth="386.0" style="-fx-background-color: #dcdcdc;">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="90.39996528625488" style="-fx-background-color: #bad0ec;" text="Id" />
+                <TableColumn fx:id="nameColumn" prefWidth="237.60005950927734" style="-fx-background-color: #bad0ec;" text="Name " />
+                <TableColumn fx:id="quanColumn" prefWidth="54.4000244140625" style="-fx-background-color: #bad0ec;" text="Quantity" />
+            </columns>
+        </TableView>
+        <Button layoutX="440.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#BuyBook" prefHeight="66.0" prefWidth="252.0" style="-fx-background-color: #bad0ec;" text="Buy" textFill="#07326e">
+         <font>
+            <Font name="SansSerif Bold" size="22.0" />
+         </font></Button>
+        <AnchorPane layoutX="425.0" layoutY="64.0" prefHeight="373.0" prefWidth="282.0">
+            <children>
+                <TextField fx:id="miniId" alignment="CENTER" editable="false" layoutX="14.0" layoutY="56.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniTitle" alignment="CENTER" layoutX="144.0" layoutY="89.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniAuthor" alignment="CENTER" layoutX="14.0" layoutY="123.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniQuan" alignment="CENTER" layoutX="144.0" layoutY="157.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniDate" alignment="CENTER" layoutX="14.0" layoutY="326.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniRating" alignment="CENTER" layoutX="144.0" layoutY="291.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniTotal" alignment="CENTER" layoutX="14.0" layoutY="258.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniIsbn" alignment="CENTER" layoutX="14.0" layoutY="190.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+                <TextField fx:id="miniPublisher" alignment="CENTER" layoutX="144.0" layoutY="224.0" prefHeight="26.0" prefWidth="131.0" style="-fx-border-color: #4774B3; -fx-background-color: #f4f3f3; -fx-border-width: 0px 0px 1px 0px;" />
+            <Text layoutX="22.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title -&gt; " textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="152.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;- Isbn" textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="22.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher -&gt;" textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="152.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;- Author " textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="22.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity -&gt; " textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="152.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;- Id " textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="152.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;- Date " textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="22.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating -&gt; " textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text layoutX="152.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;- Total Pages" textAlignment="CENTER" wrappingWidth="114.39998779296866" />
+            <Text fx:id="textMessage" fill="#07326e" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="258.9367980957031">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
