@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="borderPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainUIAdmin">
+   <left>
+      <VBox prefHeight="442.0" prefWidth="148.0" style="-fx-background-color: #4774B3;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#Home" prefHeight="85.0" prefWidth="199.0" style="-fx-background-color: #4774B3;" text="Home" textFill="#faeeee">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#Users" prefHeight="85.0" prefWidth="199.0" style="-fx-background-color: #4774B3;" text="Users" textFill="#faeeee">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#AddBook" prefHeight="85.0" prefWidth="199.0" style="-fx-background-color: #4774B3;" text="Add Book" textFill="#faeeee">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#AddUser" prefHeight="85.0" prefWidth="199.0" style="-fx-background-color: #4774B3;" text="Add User" textFill="#faeeee">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="84.0" prefWidth="199.0" style="-fx-background-color: #4774B3;" text="Log out" textFill="#faeeee">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="58.0" prefWidth="900.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="900.0" style="-fx-background-color: #bad0ec;">
+               <children>
+                  <ImageView fx:id="closeButton" fitHeight="30.0" fitWidth="30.0" layoutX="856.0" layoutY="10.0" onMouseClicked="#closeButton" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/close.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutY="1.0" prefHeight="49.0" prefWidth="900.0" style="-fx-background-color: #bad0ec;">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="857.0" layoutY="15.0" onMouseClicked="#closeButton" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/close.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="45.0" fitWidth="48.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/fsdf.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#07326e" layoutX="134.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management" wrappingWidth="290.9366912841797">
+                           <font>
+                              <Font name="SansSerif Regular" size="28.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#07326e" layoutX="67.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IUG - " wrappingWidth="81.2698974609375">
+                           <font>
+                              <Font name="SansSerif Regular" size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children></HBox>
+   </top>
+   <center>
+
+   </center>
+</BorderPane>

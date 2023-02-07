@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="book-manegment-system:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d19a6b08-efa0-43ed-a517-0162096930e2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-console-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-console-l1-2-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-datetime-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-debug-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-errorhandling-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-file-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-file-l1-2-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-file-l2-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-handle-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-heap-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-interlocked-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-libraryloader-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-localization-l1-2-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-memory-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-namedpipe-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-processenvironment-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-processthreads-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-processthreads-l1-1-1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-profile-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-string-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-synch-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-synch-l1-2-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-sysinfo-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-timezone-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-core-util-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-conio-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-convert-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-environment-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-filesystem-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-heap-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-locale-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-math-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-multibyte-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-private-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-process-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-runtime-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-stdio-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-string-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-time-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/api-ms-win-crt-utility-l1-1-0.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/decora_sse.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/fxplugins.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/glass.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/glib-lite.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/gstreamer-lite.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/javafx_font.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/javafx_iio.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/jfxmedia.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/jfxwebkit.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/msvcp140.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/msvcp140_1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/msvcp140_2.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/prism_common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/prism_d3d.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/prism_sw.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/ucrtbase.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/vcruntime140.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/bin/vcruntime140_1.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.base/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.base/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.base/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.controls/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.controls/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.fxml/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.fxml/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.fxml/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.graphics/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.graphics/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.graphics/jpeg_fx.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.graphics/mesa3d.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/directshow.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/glib.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/gstreamer.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.media/libffi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.swing/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.swing/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.swing/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/icu_web.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/libxml2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/libxslt.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/legal/javafx.web/webkit.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx-swt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.base.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.controls.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.fxml.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.graphics.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.media.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.swing.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/lib/javafx.web.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-19.0.2.1/src.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/book_manegment_system_jar/LS.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/book_manegment_system_jar/launch4j.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/book_manegment_system_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/book_manegment_system_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manegment-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/book-manegment-system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/book_manegment_system_jar/book-manegment-system.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/book_manegment_system_jar/book-manegment-system.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/change values.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pics/myLibrary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/book (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/digital-book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/group (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/hidden.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/lock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/open-book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/pass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/stack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/vvv.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2L9Vf6zLPSAtive7tK7Z0YBLKT0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Media/Documents/Library Manegment System Server-client/lib/javafx-sdk-19.0.2.1/lib&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Launcher">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Launcher" />
+      <module name="book-manegment-system" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Media\Documents\Library Manegment System Server-client\lib\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RWDatabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataBase.RWDatabase" />
+      <module name="book-manegment-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DataBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="book-manegment-system.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/book_manegment_system_jar/book-manegment-system.jar" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Media\Documents\Library Manegment System Server-client\lib\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="book-manegment-system" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.RWDatabase" />
+      <item itemvalue="JAR Application.book-manegment-system.jar" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+        <item itemvalue="JAR Application.book-manegment-system.jar" />
+        <item itemvalue="Application.RWDatabase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d19a6b08-efa0-43ed-a517-0162096930e2" name="Changes" comment="" />
+      <created>1675283387125</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675283387125</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

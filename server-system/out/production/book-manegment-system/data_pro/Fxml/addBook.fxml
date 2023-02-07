@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="320" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_pro.PaneAddUserOrBook">
+   <children>
+      <Label fx:id="Create" layoutX="97.0" layoutY="14.0" prefHeight="33.0" prefWidth="127.0" text="add a new book" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="second_create" layoutX="32.0" layoutY="178.0" prefHeight="33.0" prefWidth="79.0" text="publisher" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="password_create" layoutX="45.0" layoutY="99.0" prefHeight="33.0" prefWidth="55.0" text="author" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="publisher_new_book" focusTraversable="false" layoutX="131.0" layoutY="187.0" promptText="name" />
+      <TextField fx:id="title_new_book" focusTraversable="false" layoutX="133.0" layoutY="69.0" prefHeight="25.0" prefWidth="149.0" promptText="name of the book" />
+      <Button fx:id="save_create" layoutX="167.0" layoutY="429.0" mnemonicParsing="false" onAction="#swithscene_log_admin_new_book" prefHeight="39.0" prefWidth="113.0" text="save data">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label fx:id="first_create" layoutX="50.0" layoutY="137.0" prefHeight="33.0" prefWidth="41.0" text="isbn" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="isbn_new_book" focusTraversable="false" layoutX="132.0" layoutY="145.0" promptText="first name" />
+      <Label fx:id="gmail_create" layoutX="54.0" layoutY="59.0" prefHeight="33.0" prefWidth="41.0" text="title" textAlignment="RIGHT">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="age_create" layoutX="22.0" layoutY="221.0" prefHeight="33.0" prefWidth="87.0" text="total pages" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="total_new_book" focusTraversable="false" layoutX="131.0" layoutY="229.0" promptText="number" />
+      <Label fx:id="print_create" layoutX="70.0" layoutY="480.0" prefHeight="26.0" prefWidth="182.0" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="second_create1" layoutY="304.0" prefHeight="33.0" prefWidth="113.0" text="published date" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="date_new_book" focusTraversable="false" layoutX="129.0" layoutY="311.0" promptText="xx/yy/zzzz" />
+      <Label fx:id="first_create1" layoutX="42.0" layoutY="261.0" prefHeight="33.0" prefWidth="55.0" text="rating" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rating_new_book" focusTraversable="false" layoutX="128.0" layoutY="269.0" promptText="4.9" />
+      <Label fx:id="age_create1" layoutX="36.0" layoutY="343.0" prefHeight="33.0" prefWidth="66.0" text="quantity" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quantity_new_book" focusTraversable="false" layoutX="128.0" layoutY="351.0" promptText="number " />
+      <TextField fx:id="auther_new_book" focusTraversable="false" layoutX="134.0" layoutY="108.0" promptText="name" />
+      <Button layoutX="43.0" layoutY="429.0" mnemonicParsing="false" onAction="#button_back_add_book" prefHeight="40.0" prefWidth="97.0" text="Back">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Text fx:id="errorMessage_addbook" fill="#e71010" layoutX="76.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="156.80001220703116" />
+   </children>
+</AnchorPane>
