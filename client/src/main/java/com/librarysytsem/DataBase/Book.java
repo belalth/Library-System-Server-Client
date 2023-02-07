@@ -2,7 +2,7 @@
 package com.librarysytsem.DataBase;
 
 public class Book {
-    public int id;
+    public  int id;
     private String title ;
     private String author;
     public int quantity;
@@ -29,7 +29,7 @@ public class Book {
         
     }
 
-    public int getId() {
+    public  int getId() {
         return id;
     }
 

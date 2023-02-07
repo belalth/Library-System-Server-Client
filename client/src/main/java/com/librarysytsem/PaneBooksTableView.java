@@ -1,6 +1,6 @@
 package com.librarysytsem; 
 
-import com.librarysytsem.DataBase.* ; 
+import com.librarysytsem.DataBase.* ;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -58,10 +58,14 @@ public class PaneBooksTableView implements Initializable {
      * adding the content of the treeMap to an ObservableList when initializing the program
      * to add it then in the Table accordingly
      * */
-    private ObservableList<Book> BooksObservableList =  FXCollections.observableArrayList(); ;
+    private final ObservableList<Book> BooksObservableList =  FXCollections.observableArrayList(); ;
     @Override
     public  void initialize(URL url, ResourceBundle resourceBundle) {
+
         //here we initialize the values of the clumns of the table
+
+
+
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Book , Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Book , String>("title"));

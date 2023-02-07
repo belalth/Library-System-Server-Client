@@ -4,4 +4,8 @@ module com.librarysytsem {
 
     opens com.librarysytsem to javafx.fxml;
     exports com.librarysytsem;
+
+    exports  com.librarysytsem.DataBase ;
+
+
 }
