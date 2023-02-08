@@ -98,7 +98,7 @@ public class PaneMyLibrary implements Initializable {
             //then remove from the Tableview
             booksViewTable.getItems().remove(selectedID);
             //write the data on the txt/csv file cuz we dont have REAL dataBase yet
-            writeOwnedBooks();
+//            writeOwnedBooks();
         }
 //        BookstableViewRefresh() ;
     }

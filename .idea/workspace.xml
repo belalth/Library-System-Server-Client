@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5499683-d0a2-4454-9416-5c26bafc7404" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/librarysytsem/LibraryServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/DataBase/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/DataBase/BooksDB.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/DataBase/RWDatabase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/DataBase/Users.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/DataBase/UsersBooksRelationDB.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/DataBase/UsersDB.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/librarysytsem/database/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/librarysytsem/database/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/librarysytsem/database/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/librarysytsem/database/Book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/SocketConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/MainUIAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/MainUIAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/MainUILoginSignup.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/MainUILoginSignup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneAddUserOrBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneAddUserOrBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneBooksTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneBooksTableView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneMyLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneMyLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneUserTableView_users.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneUserTableView_users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneUsersTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/librarysytsem/PaneUsersTableView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/MainUIAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/MainUIAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/MainUILoginSignup.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/MainUILoginSignup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/MainUIUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/com/librarysytsem/MainUIUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/librarysytsem/LibraryServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/librarysytsem/LibraryServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/librarysytsem/HandleClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/librarysytsem/HandleClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/librarysytsem/LibraryServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/librarysytsem/LibraryServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +51,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Media/Documents/GitHub/Library-System-Server-Client/client"
+    "last_opened_file_path": "D:/Media/Documents/GitHub/Library-System-Server-Client",
+    "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

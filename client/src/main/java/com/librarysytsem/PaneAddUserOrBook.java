@@ -126,7 +126,7 @@ public class PaneAddUserOrBook {
                             Integer.parseInt(quantity_new_book.getText())
                     )
             );
-            doWrite();
+//            doWrite();
             errorMessage.setText("Book stored successfully :) ");
         }
     }

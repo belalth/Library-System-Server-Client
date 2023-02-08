@@ -8,23 +8,18 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 
+
 public class Launcher extends Application {
+   
     @Override
      public void start(Stage stage) throws Exception {
-
-//        Image img = new Image("librarysytsem/icons/appIcon.png");
-//        stage.getIcons().add(img);
-        boolean autApproved = false ;
-        try(Socket socket = new Socket("localhost", 8080)){
-            System.out.println("hi there ");
-        }
-
-
+        SocketConnection socketConnection = new SocketConnection("localhost" , 8000);
 
         stage.setResizable(false);
         Scene scene = new Scene(loadFXML("Login"));
@@ -40,3 +35,7 @@ public class Launcher extends Application {
         launch(args);
     }
 }
+
+
+//        Image img = new Image("librarysytsem/icons/appIcon.png");
+//        stage.getIcons().add(img);

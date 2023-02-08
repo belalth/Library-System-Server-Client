@@ -125,7 +125,7 @@ public class PaneBooksTableView implements Initializable {
             //then remove from the Tableview
             booksViewTable.getItems().remove(selectedID);
             //write the data on the txt/csv file cuz we dont have REAL dataBase yet
-            doWrite();
+//            doWrite();
         }
 //        BookstableViewRefresh() ;
     }
@@ -160,7 +160,7 @@ public class PaneBooksTableView implements Initializable {
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
             booksViewTable.getItems().set(selectedID , BooksList.get(Integer.parseInt(miniId.getText())));
 //           BookstableViewRefresh();
-            doWrite();
+//            doWrite();
         }
     }
 }

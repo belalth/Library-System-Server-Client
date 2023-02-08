@@ -131,9 +131,9 @@ public class PaneUserTableView_users implements Initializable {
             //using the dicresing method to dicrease books quantity-1
             BooksList.get(booksViewTable.getSelectionModel().getSelectedItem().getId()).decreaseQuantity();
             //writing the edited book with quantity-1
-            doWrite();
+//            doWrite();
             //write the relation DB
-            writeOwnedBooks();
+//            writeOwnedBooks();
             //make changes on the tableView
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
             booksViewTable.getItems().set(selectedID , BooksList.get(Integer.parseInt(miniId.getText())));

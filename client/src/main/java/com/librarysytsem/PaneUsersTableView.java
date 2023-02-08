@@ -113,8 +113,8 @@ public class PaneUsersTableView implements Initializable {
             //remove the user from the relations dataBase
            OwnedBooks.remove(usersTableView.getSelectionModel().getSelectedItem().getId());
             usersTableView.getItems().remove(selectedID);
-            writeUsersData();
-            writeOwnedBooks();
+//            writeUsersData();
+//            writeOwnedBooks();
         }
     }
 
@@ -132,7 +132,7 @@ public class PaneUsersTableView implements Initializable {
             //we edit directly to the table view without any refreshing or more complexity
             usersTableView.getItems().set(selectedID , UsersList.get(Integer.parseInt(showId.getText())));
             //write the data to the database in sure that its complexity is not accountable
-            writeUsersData();
+//            writeUsersData();
         }
     }
 

@@ -80,7 +80,7 @@ public class MainUIAdmin implements Initializable {
         }
     }
 
-    public void closeButton(MouseEvent event) {
+    public  void closeButton(MouseEvent event) {
         System.exit(1 );
     }
 

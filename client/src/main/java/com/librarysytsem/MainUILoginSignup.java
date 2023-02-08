@@ -5,6 +5,7 @@ import com.librarysytsem.models.* ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,14 +15,20 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.TreeMap;
 
 
-public class MainUILoginSignup {
+
+public class MainUILoginSignup implements Initializable {
     @FXML
     private TextField textfield_id_welcome;
     @FXML
@@ -49,7 +56,7 @@ public class MainUILoginSignup {
     public static TreeMap<Integer, Book> BooksList = new TreeMap<>();
     public static TreeMap<Integer, User> UsersList = new TreeMap<>();
     public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
-    HashMap<String , String> users  = new HashMap<>();
+    public static HashMap<String , String> usernameNdPassInput  = new HashMap<>();
     /**
      * Start login window
      * when the user enter the id number and pass.
@@ -59,18 +66,23 @@ public class MainUILoginSignup {
     public void swithslogin(ActionEvent event) throws IOException {
         String id = textfield_id_welcome.getText();
         String password = textfield_pass_welcome.getText();
-        users.put(id , password);
+        usernameNdPassInput.put(id , password);
 
-        if (id.isEmpty() || password.isEmpty()) {
-            text_loginStart_Windows.setText("Please fill The Empty slots!");
-        } else if (UsersList.containsKey(Integer.parseInt(id)) && password.equals(UsersList.get(Integer.parseInt(id)).getPassword())) {
-            PaneMyLibrary.initializeId(Integer.parseInt(id), UsersList.get(Integer.parseInt(id)).getFirstName());
-            loadScene("MainUIUsers.fxml", event);
-        } else if (id.equals("1111") && password.equals("admin")) {
-            loadScene("MainUIAdmin.fxml", event);
-        } else {
-            text_loginStart_Windows.setText("Wrong Id or password, Please Try Again.");
-        }
+        
+
+        
+
+       
+//        if (id.isEmpty() || password.isEmpty()) {
+//            text_loginStart_Windows.setText("Please fill The Empty slots!");
+//        } else if (UsersList.containsKey(Integer.parseInt(id)) && password.equals(UsersList.get(Integer.parseInt(id)).getPassword())) {
+//            PaneMyLibrary.initializeId(Integer.parseInt(id), UsersList.get(Integer.parseInt(id)).getFirstName());
+//            loadScene("MainUIUsers.fxml", event);
+//        } else if (id.equals("1111") && password.equals("admin")) {
+//            loadScene("MainUIAdmin.fxml", event);
+//        } else {
+//            text_loginStart_Windows.setText("Wrong Id or password, Please Try Again.");
+//        }
     }
 
     private void loadScene(String fxml, ActionEvent event) throws IOException {
@@ -165,5 +177,25 @@ public class MainUILoginSignup {
 
     public void closeButton(MouseEvent event) {
         System.exit(1 );
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        // TODO Auto-generated method stub
+        try(Socket socket = new Socket("localhost", 8000)){
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+            // outputStream.writeObject(usernameNdPassInput);
+
+            DataInputStream token = new DataInputStream(socket.getInputStream());
+            DataInputStream approved = new DataInputStream(socket.getInputStream());
+
+            if (approved.readBoolean()){
+                System.out.println("approved");
+                System.out.println(token.readLong());
+            }
+
+        }catch (IOException e){
+        System.out.println("MainUILoginSignup.initialize()");
+    }
     }
 }
