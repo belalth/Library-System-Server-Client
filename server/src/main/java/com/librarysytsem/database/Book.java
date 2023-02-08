@@ -1,35 +1,29 @@
-
 package com.librarysytsem.database;
 
 public class Book {
-    public  int id;
-    private String title ;
+    private int id;
+    private String title;
     private String author;
-    public int quantity;
+    private int quantity;
     private String isbn;
-    private String publisher = null ;
-    private int total_pages = 0 ;
-    private float rating = 0 ;
-    private String published_date = null;
-    
-    
-    public Book(int id , String title , String auther, String  isbn , String publisher , int total , float rating  , String date, int quan ){
-        this.id = id ;
-        this.title = title ; 
-        this.author = auther ;
-        this.isbn = isbn ; 
-        this.publisher = publisher ; 
-        this.total_pages = total ; 
-        this.rating = rating ; 
-        this.published_date = date ;
-        this.quantity = quan ;
+    private String publisher;
+    private int totalPages;
+    private float rating;
+    private String publishedDate;
+
+    public Book(int id, String title, String author, String isbn, String publisher, int totalPages, float rating, String publishedDate, int quantity) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.totalPages = totalPages;
+        this.rating = rating;
+        this.publishedDate = publishedDate;
+        this.quantity = quantity;
     }
 
-    Book() {
-        
-    }
-
-    public  int getId() {
+    public int getId() {
         return id;
     }
 
@@ -54,19 +48,19 @@ public class Book {
     }
 
     public int getTotalPages() {
-        return total_pages;
+        return totalPages;
     }
 
     public float getRating() {
         return rating;
     }
 
-    public String getDate() {
-        return published_date;
+    public String getPublishedDate() {
+        return publishedDate;
     }
 
-    public void setId(int book_id) {
-        this.id = book_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
@@ -89,25 +83,24 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public void setTotal_pages(int total_pages) {
-        this.total_pages = total_pages;
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
     }
 
     public void setRating(float rating) {
         this.rating = rating;
     }
 
-    public void setPublished_date(String published_date) {
-        this.published_date = published_date;
+    public void setPublishedDate(String publishedDate) {
+        this.publishedDate = publishedDate;
     }
 
-    public void dicreseQuantity(){
-        this.quantity-- ;
+    public void decreaseQuantity() {
+        this.quantity--;
     }
+
     @Override
-    public String toString(){
-        return  this.id +"\n"+ this.title  + "\n" + this.quantity + "\n" ;
-    }  
+    public String toString() {
+        return this.id + "\n" + this.title + "\n" + this.quantity + "\n";
+    }
 }
-
-    

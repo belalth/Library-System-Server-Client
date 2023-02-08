@@ -7,113 +7,81 @@ import java.io.*;
 import java.util.*;
 
 public class RWDatabase {
-    public static int BooksNumber;
     public static TreeMap<Integer, Book> BooksList = new TreeMap<>();
-    public static TreeMap<Integer, Users> UsersList = new TreeMap<>();
+    public static TreeMap<Integer, User> UsersList = new TreeMap<>();
     public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
-    private static final String bookPath = "src/main/java/com/librarysytsem/database/BooksDB.txt";
-    private static final String userPath = "src/main/java/com/librarysytsem/database/UsersDB.csv";
-    private static final String relationPath = "src/main/java/com/librarysytsem/database/UsersBooksRelationDB.csv";
-
-
-
+    private static final String BOOKS_DATABASE_PATH = "src/main/java/com/librarysytsem/database/books_database.csv";
+    private static final String USERS_DATABASE_PATH = "src/main/java/com/librarysytsem/database/users_database.csv";
+    private static final String RELATION_DATABASE_PATH = "src/main/java/com/librarysytsem/database/UsersBooksRelationDB.csv";
 
 
     public static void main(String[] args) throws Exception {
-        reader();
-        doWrite();
-        readUsersData() ;
-        readOwnedBooks();
+        loadBooksAndUsers();
+        writeBooksAndUsers();
+        loadOwnedBooks();
         writeOwnedBooks();
         System.out.println("TEST PASS");
-//        Date dateCreated = new java.util.Date();
-//        System.out.println(dateCreated);
+        Date dateCreated = new java.util.Date();
     }
-    public static void writeUsersData() throws IOException {
-        try (BufferedWriter out = new BufferedWriter(new FileWriter(userPath, false))) {
+
+
+    public static void loadBooksAndUsers() {
+        try (Scanner usersIn = new Scanner(new File(USERS_DATABASE_PATH));
+             Scanner booksIn = new Scanner(new File(BOOKS_DATABASE_PATH))) {
+            while (usersIn.hasNextLine()) {
+                String[] tempUsersList = usersIn.nextLine().split(",");
+                if (tempUsersList.length != 6) {
+                    throw new Exception("User object is corrupted. Can't read user data correctly.");
+                }
+                int id = Integer.parseInt(tempUsersList[0]);
+                if (id != -1) {
+                    User user = new User(id, tempUsersList[1], tempUsersList[2], tempUsersList[3], tempUsersList[4], Integer.parseInt(tempUsersList[5]));
+                    UsersList.put(id, user);
+                }
+            }
+            while (booksIn.hasNextLine()) {
+                String[] tempBooksList = booksIn.nextLine().split(",");
+                if (tempBooksList.length != 9) {
+                    throw new Exception("Book object is corrupted. Can't read Book data correctly.");
+                }
+                int id = Integer.parseInt(tempBooksList[0]);
+                if (id != -1) {
+                    Book book = new Book(id, tempBooksList[1], tempBooksList[2], tempBooksList[3],
+                            tempBooksList[4] , Integer.parseInt(tempBooksList[5]) , Float.parseFloat(tempBooksList[6]) , tempBooksList[7] , Integer.parseInt(tempBooksList[8]) );
+                    BooksList.put(id, book);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeBooksAndUsers() throws IOException {
+        try (BufferedWriter usersOut = new BufferedWriter(new FileWriter(USERS_DATABASE_PATH, false));
+             BufferedWriter booksOut = new BufferedWriter(new FileWriter(BOOKS_DATABASE_PATH, false))) {
             UsersList.forEach((key, value) -> {
                 if (value.getId() != -1) {
                     try {
-                        out.write(value.getId() + "," + value.getGmail() + "," + value.getPassword() + "," + value.getFirst() + "," + value.getLast() + "," + value.getAge() + "\n");
+                        usersOut.write(value.getId() + "," + value.getEmail() + "," + value.getPassword() + "," + value.getFirstName() + "," + value.getLastName() + "," + value.getAge() + "\n");
                     } catch (IOException e) {
-                        throw new RuntimeException(e);
+                        throw new UncheckedIOException(e);
+                    }
+                }
+            });
+            BooksList.forEach((key, value) -> {
+                if (value.getId() != -1) {
+                    try {
+                        booksOut.write(value.getId() + "," + value.getTitle() + "," + value.getAuthor() + "," + value.getIsbn() + "," + value.getPublisher() + "," + value.getTotalPages() + "," + value.getRating() + "," + value.getPublishedDate() + "," + value.getQuantity() + "\n");
+                    } catch (IOException e) {
+                        throw new UncheckedIOException(e);
                     }
                 }
             });
         }
     }
 
-    public static void doWrite() throws IOException {
-        if (BooksList == null) {
-            throw new NullPointerException("THERE IS NO DATA IN THE TREEMAP TO WRITE!");
-        }
-        try (BufferedWriter out = new BufferedWriter(new FileWriter(bookPath))) {
-            out.write(BooksNumber + "\n");
-        }
-        for (Book e : BooksList.values()) {
-            writer(e, bookPath);
-        }
-    }
-
-
-    public static void reader( ) throws FileNotFoundException{
-        Scanner input = new Scanner(new File(bookPath) );
-        BooksNumber = Integer.parseInt(input.nextLine() );
-
-        for(int i =  0 ; i < BooksNumber ; i++ ){
-            input.nextLine() ;
-            Book tempBook = new Book(
-                    Integer.parseInt(input.nextLine()),
-                    input.nextLine().substring(18),
-                    input.nextLine().substring(18) ,
-                    input.nextLine().substring(18) ,
-                    input.nextLine().substring(18) ,
-                    Integer.parseInt(input.nextLine().substring(18)),
-                    Float.parseFloat(input.nextLine().substring(18)) ,
-                    input.nextLine().substring(18),
-                    Integer.parseInt(input.nextLine().substring(18)) ) ;
-
-            BooksList.put(tempBook.getId() ,tempBook   );
-        }
-        BooksNumber = BooksList.size();
-
-
-    }
-
-    public static void writer(Book bookOb , String pathName) throws IOException {
-        FileWriter fileWriter = new FileWriter(pathName, true);
-        BufferedWriter out = new BufferedWriter(fileWriter);
-        out.write("\n");
-        out.write( bookOb.getId() + "\n" );
-        out.write("title          -> "+bookOb.getTitle()+ "\n");
-        out.write("author         -> "+bookOb.getAuthor()+ "\n");
-        out.write("isbn           -> "+bookOb.getIsbn()+ "\n");
-        out.write("publisher      -> "+bookOb.getPublisher()+ "\n");
-        out.write("total_pages    -> "+bookOb.getTotalPages()+ "\n");
-        out.write("rating         -> "+bookOb.getRating()+ "\n");
-        out.write("published_date -> "+bookOb.getDate()+ "\n");
-        out.write("quantity       -> "+bookOb.getQuantity()+ "\n");
-        out.close();
-    }
-
-    public static void readUsersData() throws Exception {
-        try (Scanner input = new Scanner(new File(userPath))) {
-            while (input.hasNextLine()) {
-                String[] tempList = input.nextLine().split(",");
-                if (tempList.length != 6) {
-                    throw new Exception("User object is corrupted. Can't read user data correctly.");
-                }
-                int id = Integer.parseInt(tempList[0]);
-                if (id != -1) {
-                    Users user = new Users(id, tempList[1], tempList[2], tempList[3], tempList[4], Integer.parseInt(tempList[5]));
-                    UsersList.put(id, user);
-                }
-            }
-        }
-    }
-
-    public static void readOwnedBooks() throws FileNotFoundException {
-        try(Scanner input = new Scanner(new File(relationPath))){
+    public static void loadOwnedBooks() throws FileNotFoundException {
+        try(Scanner input = new Scanner(new File(RELATION_DATABASE_PATH))){
         while(input.hasNext())  {
             String[] tempList = input.nextLine().split(",") ;
             LinkedList<Book> usersArr = new LinkedList<>( );
@@ -125,7 +93,7 @@ public class RWDatabase {
     }}
 
     public static void writeOwnedBooks() throws IOException {
-        try (FileWriter fileWriter = new FileWriter(relationPath, false);
+        try (FileWriter fileWriter = new FileWriter(RELATION_DATABASE_PATH, false);
              BufferedWriter out = new BufferedWriter(fileWriter)) {
             OwnedBooks.forEach((key, value) -> {
                 try {
