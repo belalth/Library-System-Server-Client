@@ -1,5 +1,8 @@
 package com.librarysytsem;
 
+
+import com.librarysytsem.database.* ;
+
 import java.io.*;
 import java.util.*;
 
@@ -8,9 +11,9 @@ public class RWDatabase {
     public static TreeMap<Integer, Book> BooksList = new TreeMap<>();
     public static TreeMap<Integer, Users> UsersList = new TreeMap<>();
     public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
-    private static final String bookPath = "src/main/java/com/librarysytsem/BooksDB.txt";
-    private static final String userPath = "src/main/java/com/librarysytsem/UsersDB.csv";
-    private static final String relationPath = "src/main/java/com/librarysytsem/UsersBooksRelationDB.csv";
+    private static final String bookPath = "src/main/java/com/librarysytsem/database/BooksDB.txt";
+    private static final String userPath = "src/main/java/com/librarysytsem/database/UsersDB.csv";
+    private static final String relationPath = "src/main/java/com/librarysytsem/database/UsersBooksRelationDB.csv";
 
 
 

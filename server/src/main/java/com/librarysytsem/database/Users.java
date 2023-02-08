@@ -1,5 +1,5 @@
 
-package com.librarysytsem;
+package com.librarysytsem.database;
 
 
 public class Users {
