@@ -62,25 +62,22 @@ public class MainUIAdmin implements Initializable {
     }
     @FXML
     private void LogOut(MouseEvent event) throws IOException {
-        Stage stage ;
-        Scene scene ;
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.setScene(new Scene(root));
         stage.show();
     }
     /**
      *Method for the swtiching the slid buttons
      */
-    private void loadPage(String page ) throws IOException {
-        Parent root = null ;
-        try{
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
-    }
-        catch(IOException ignored){
-    }
-        borderPane.setCenter(root);
+    private void loadPage(String pageName) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource(pageName + ".fxml"));
+            Parent root =  fxmlLoader.load() ; // FXMLLoader.load(getClass().getResource(pageName + ".fxml"));
+            borderPane.setCenter(root);
+        } catch (IOException e) {
+            System.out.println("Failed to load page: " + pageName + ".fxml");
+        }
     }
 
     public void closeButton(MouseEvent event) {
@@ -88,11 +85,5 @@ public class MainUIAdmin implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            loadPage("PaneBooksTableView");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) { loadPage("PaneBooksTableView");}
 }

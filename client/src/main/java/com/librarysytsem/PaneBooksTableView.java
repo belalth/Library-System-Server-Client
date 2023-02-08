@@ -62,23 +62,15 @@ public class PaneBooksTableView implements Initializable {
     @Override
     public  void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //here we initialize the values of the clumns of the table
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        quanColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
-
-
-
-        idColumn.setCellValueFactory(new PropertyValueFactory<Book , Integer>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Book , String>("title"));
-        quanColumn.setCellValueFactory(new PropertyValueFactory<Book , Integer>("quantity"));
-
-        //we clear the observablelist cuz when we edit any book/user the content Doubled
-        //cuz we refresh the observalbe one more time after the editing
         BooksObservableList.clear();
-        RWDatabase.BooksList.forEach(
-                (key, value) -> {
-                    BooksObservableList.add(value);
-                }
-        );
+        RWDatabase.BooksList.forEach((id, book) -> {
+            BooksObservableList.add(book);
+        });
+
         //adding items to the table to display them
         booksViewTable.setItems(BooksObservableList);
 
@@ -110,7 +102,6 @@ public class PaneBooksTableView implements Initializable {
             });
 
         });
-
     }
 
     private boolean isString(String str){

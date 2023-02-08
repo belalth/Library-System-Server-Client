@@ -1,5 +1,5 @@
 
-package com.librarysytsem.DataBase;
+package com.librarysytsem;
 
 public class Book {
     public  int id;

@@ -1,7 +1,7 @@
 
-package com.librarysytsem; 
+package com.librarysytsem;
 
-import com.librarysytsem.DataBase.* ; 
+import com.librarysytsem.DataBase.* ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,25 +51,27 @@ public class MainUILoginSignup {
      * Or the main menu for Admins.
      */
     public void swithslogin(ActionEvent event) throws IOException {
-        if (textfield_id_welcome.getText().isEmpty() || textfield_pass_welcome.getText().isEmpty())
+        String id = textfield_id_welcome.getText();
+        String password = textfield_pass_welcome.getText();
+
+        if (id.isEmpty() || password.isEmpty()) {
             text_loginStart_Windows.setText("Please fill The Empty slots!");
-        else if(RWDatabase.UsersList.containsKey(Integer.parseInt(textfield_id_welcome.getText())) && textfield_pass_welcome.getText().equals(RWDatabase.UsersList.get(Integer.parseInt(textfield_id_welcome.getText())).getPassword()) ){
-            PaneMyLibrary.initializeId(Integer.parseInt(textfield_id_welcome.getText()) , RWDatabase.UsersList.get(Integer.parseInt(textfield_id_welcome.getText())).getFirst());
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainUIUsers.fxml")));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }else if (Integer.parseInt(textfield_id_welcome.getText())==1111 && textfield_pass_welcome.getText().equals("admin" + "" )){
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainUIAdmin.fxml")));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-//            stage.initStyle(StageStyle.UNDECORATED);
-            stage.show();
-        }
-        else
+        } else if (RWDatabase.UsersList.containsKey(Integer.parseInt(id)) && password.equals(RWDatabase.UsersList.get(Integer.parseInt(id)).getPassword())) {
+            PaneMyLibrary.initializeId(Integer.parseInt(id), RWDatabase.UsersList.get(Integer.parseInt(id)).getFirst());
+            loadScene("MainUIUsers.fxml", event);
+        } else if (id.equals("1111") && password.equals("admin")) {
+            loadScene("MainUIAdmin.fxml", event);
+        } else {
             text_loginStart_Windows.setText("Wrong Id or password, Please Try Again.");
+        }
+    }
+
+    private void loadScene(String fxml, ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void SwitchToSignUp(ActionEvent event) throws IOException {
@@ -91,53 +93,59 @@ public class MainUILoginSignup {
      * maximum id integer digits is 5
      *
      */
-    public void SignUpButton(ActionEvent event)throws Exception{
-        if (
-                textfield_id_create.getText().isEmpty() ||
-                        Textgmail_create.getText().isEmpty()||
-                        Textpass_create.getText().isEmpty()||
-                        Textfirst_create.getText().isEmpty()||
-                        Textsecond_create.getText().isEmpty()||
-                        Textage_create.getText().isEmpty()
-        ){
-            print_create.setText("Please fill the empty slots ! ");
+
+    public void SignUpButton(ActionEvent event) throws Exception {
+        if (isSignUpFormEmpty()) {
+            print_create.setText("Please fill the empty slots!");
+            return;
         }
-        else if (RWDatabase.UsersList.containsKey(Integer.parseInt(textfield_id_create.getText())))
-            print_create.setText("User id already exist ! ");
-        else if (
 
-                Integer.parseInt(Textage_create.getText())>0 &&
-                        Integer.parseInt(Textage_create.getText())<100
-
-        ){
-
-            Users tempUser = new Users( Integer.parseInt(textfield_id_create.getText()) ,
-                    Textgmail_create.getText(),
-                    Textpass_create.getText(),
-                    Textfirst_create.getText(),
-                    Textsecond_create.getText() ,
-                    Integer.parseInt(Textage_create.getText()));
-            //here we add a new user object to the maptree that we made earliear
-            RWDatabase.UsersList.put(tempUser.getId() ,tempUser );
-            //add the id to the ralationd db
-            RWDatabase.OwnedBooks.put(tempUser.getId(), new LinkedList<>());
-            //here is adding the user data to the database :
-            RWDatabase.writeUsersData();
-            //write the relation db
-            RWDatabase.writeOwnedBooks();
-
-
-            print_create.setText("Account Created Successfully :) ");
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            Thread.sleep( 200   );
-//            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
-        }else{
-            print_create.setText("Error ! try again");
+        int userId = Integer.parseInt(textfield_id_create.getText());
+        if (RWDatabase.UsersList.containsKey(userId)) {
+            print_create.setText("User id already exists!");
+            return;
         }
+
+        int age = Integer.parseInt(Textage_create.getText());
+        if (age <= 0 || age >= 100) {
+            print_create.setText("Error! Try again");
+            return;
+        }
+
+        Users tempUser = new Users(
+                userId,
+                Textgmail_create.getText(),
+                Textpass_create.getText(),
+                Textfirst_create.getText(),
+                Textsecond_create.getText(),
+                age
+        );
+
+        RWDatabase.UsersList.put(tempUser.getId(), tempUser);
+        RWDatabase.OwnedBooks.put(tempUser.getId(), new LinkedList<>());
+        RWDatabase.writeUsersData();
+        RWDatabase.writeOwnedBooks();
+
+        print_create.setText("Account created successfully :)");
+        loadLoginScreen(event);
+    }
+
+    private boolean isSignUpFormEmpty() {
+        return textfield_id_create.getText().isEmpty() ||
+                Textgmail_create.getText().isEmpty() ||
+                Textpass_create.getText().isEmpty() ||
+                Textfirst_create.getText().isEmpty() ||
+                Textsecond_create.getText().isEmpty() ||
+                Textage_create.getText().isEmpty();
+    }
+
+    private void loadLoginScreen(ActionEvent event) throws IOException, InterruptedException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        Thread.sleep(200);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void signUp_back_button(ActionEvent event) throws IOException {

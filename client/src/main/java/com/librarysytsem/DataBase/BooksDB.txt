@@ -18,7 +18,7 @@ publisher      -> The Russian Messenger
 total_pages    -> 864
 rating         -> 3.5
 published_date -> 1/1/1878
-quantity       -> 17
+quantity       -> 16
 
 33225
 title          -> Invisible Man
