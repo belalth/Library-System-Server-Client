@@ -1,7 +1,7 @@
 
 package com.librarysytsem;
 
-import com.librarysytsem.DataBase.* ;
+import com.librarysytsem.models.* ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +15,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.TreeMap;
 
 
 public class MainUILoginSignup {
@@ -44,6 +46,10 @@ public class MainUILoginSignup {
     private Stage stage;
     private Scene scene;
 
+    public static TreeMap<Integer, Book> BooksList = new TreeMap<>();
+    public static TreeMap<Integer, User> UsersList = new TreeMap<>();
+    public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
+    HashMap<String , String> users  = new HashMap<>();
     /**
      * Start login window
      * when the user enter the id number and pass.
@@ -53,11 +59,12 @@ public class MainUILoginSignup {
     public void swithslogin(ActionEvent event) throws IOException {
         String id = textfield_id_welcome.getText();
         String password = textfield_pass_welcome.getText();
+        users.put(id , password);
 
         if (id.isEmpty() || password.isEmpty()) {
             text_loginStart_Windows.setText("Please fill The Empty slots!");
-        } else if (RWDatabase.UsersList.containsKey(Integer.parseInt(id)) && password.equals(RWDatabase.UsersList.get(Integer.parseInt(id)).getPassword())) {
-            PaneMyLibrary.initializeId(Integer.parseInt(id), RWDatabase.UsersList.get(Integer.parseInt(id)).getFirst());
+        } else if (UsersList.containsKey(Integer.parseInt(id)) && password.equals(UsersList.get(Integer.parseInt(id)).getPassword())) {
+            PaneMyLibrary.initializeId(Integer.parseInt(id), UsersList.get(Integer.parseInt(id)).getFirstName());
             loadScene("MainUIUsers.fxml", event);
         } else if (id.equals("1111") && password.equals("admin")) {
             loadScene("MainUIAdmin.fxml", event);
@@ -101,7 +108,7 @@ public class MainUILoginSignup {
         }
 
         int userId = Integer.parseInt(textfield_id_create.getText());
-        if (RWDatabase.UsersList.containsKey(userId)) {
+        if (UsersList.containsKey(userId)) {
             print_create.setText("User id already exists!");
             return;
         }
@@ -112,7 +119,7 @@ public class MainUILoginSignup {
             return;
         }
 
-        Users tempUser = new Users(
+        User tempUser = new User(
                 userId,
                 Textgmail_create.getText(),
                 Textpass_create.getText(),
@@ -121,10 +128,10 @@ public class MainUILoginSignup {
                 age
         );
 
-        RWDatabase.UsersList.put(tempUser.getId(), tempUser);
-        RWDatabase.OwnedBooks.put(tempUser.getId(), new LinkedList<>());
-        RWDatabase.writeUsersData();
-        RWDatabase.writeOwnedBooks();
+        UsersList.put(tempUser.getId(), tempUser);
+        OwnedBooks.put(tempUser.getId(), new LinkedList<>());
+//        writeUsersData();
+//        writeOwnedBooks();
 
         print_create.setText("Account created successfully :)");
         loadLoginScreen(event);

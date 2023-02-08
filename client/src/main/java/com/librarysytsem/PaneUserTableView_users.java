@@ -1,6 +1,7 @@
 package com.librarysytsem; 
 
-import com.librarysytsem.DataBase.* ; 
+
+import com.librarysytsem.models.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+import static com.librarysytsem.MainUILoginSignup.BooksList;
+import static com.librarysytsem.MainUILoginSignup.OwnedBooks;
 import static java.lang.Character.isDigit;
 
 public class PaneUserTableView_users implements Initializable {
@@ -71,7 +74,7 @@ public class PaneUserTableView_users implements Initializable {
         //we clear the observablelist cuz when we edit any book/user the content Doubled
         //cuz we refresh the observalbe one more time after the editing
         BooksObservableList.clear();
-        RWDatabase.BooksList.forEach(
+        BooksList.forEach(
                 (key, value) -> {
                     BooksObservableList.add(value);
                 }
@@ -89,8 +92,8 @@ public class PaneUserTableView_users implements Initializable {
         BookSearchBar.textProperty().addListener(a -> {
             ObservableList<Book> filterdList = FXCollections.observableArrayList();
             if ( !BookSearchBar.getText().equals("") && !isString(BookSearchBar.getText())  ){
-                if (RWDatabase.BooksList.containsKey(Integer.parseInt(BookSearchBar.getText()))  && !BookSearchBar.getText().isEmpty()){
-                    Book target = RWDatabase.BooksList.get(Integer.parseInt(BookSearchBar.getText()) );
+                if (BooksList.containsKey(Integer.parseInt(BookSearchBar.getText()))  && !BookSearchBar.getText().isEmpty()){
+                    Book target = BooksList.get(Integer.parseInt(BookSearchBar.getText()) );
                     filterdList.add(target);
                     booksViewTable.setItems(filterdList);
             }
@@ -118,22 +121,22 @@ public class PaneUserTableView_users implements Initializable {
 
     @FXML
     private void BuyBook(MouseEvent event) throws IOException, InterruptedException {
-        if (RWDatabase.OwnedBooks.get(PaneMyLibrary.userId).contains(booksViewTable.getSelectionModel().getSelectedItem())){
+        if (OwnedBooks.get(PaneMyLibrary.userId).contains(booksViewTable.getSelectionModel().getSelectedItem())){
             textMessage.setFill(Paint.valueOf("red"));
             textMessage.setText("You Have This Book Already!");
         }
          else if (booksViewTable.getSelectionModel().getSelectedItem() != null){
             //adding the book to the library of user
-            RWDatabase.OwnedBooks.get(PaneMyLibrary.userId).add(booksViewTable.getSelectionModel().getSelectedItem());
+            OwnedBooks.get(PaneMyLibrary.userId).add(booksViewTable.getSelectionModel().getSelectedItem());
             //using the dicresing method to dicrease books quantity-1
-            RWDatabase.BooksList.get(booksViewTable.getSelectionModel().getSelectedItem().getId()).dicreseQuantity();
+            BooksList.get(booksViewTable.getSelectionModel().getSelectedItem().getId()).decreaseQuantity();
             //writing the edited book with quantity-1
-            RWDatabase.doWrite();
+            doWrite();
             //write the relation DB
-            RWDatabase.writeOwnedBooks();
+            writeOwnedBooks();
             //make changes on the tableView
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
-            booksViewTable.getItems().set(selectedID , RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())));
+            booksViewTable.getItems().set(selectedID , BooksList.get(Integer.parseInt(miniId.getText())));
 
             textMessage.setFill(Paint.valueOf("green"));
             textMessage.setText("Book Purchased Successfully!");
@@ -154,7 +157,7 @@ public class PaneUserTableView_users implements Initializable {
             miniPublisher.setText(booksViewTable.getSelectionModel().getSelectedItem().getPublisher());
             miniTotal.setText(booksViewTable.getSelectionModel().getSelectedItem().getTotalPages()+"");
             miniRating.setText(booksViewTable.getSelectionModel().getSelectedItem().getRating()+"");
-            miniDate.setText(booksViewTable.getSelectionModel().getSelectedItem().getDate());
+            miniDate.setText(booksViewTable.getSelectionModel().getSelectedItem().getPublishedDate());
         }
     }
 }

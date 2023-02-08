@@ -1,4 +1,4 @@
-package com.librarysytsem.database;
+package com.librarysytsem.models;
 
 public class Book {
     private int id;

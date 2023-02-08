@@ -1,6 +1,7 @@
 package com.librarysytsem; 
 
-import com.librarysytsem.DataBase.* ; 
+
+import com.librarysytsem.models.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
+import static com.librarysytsem.MainUILoginSignup.OwnedBooks;
 
 
 public class PaneMyLibrary implements Initializable {
@@ -65,7 +67,7 @@ public class PaneMyLibrary implements Initializable {
         //clear the observable list avoiding problems
         BooksObservableList.clear();
         //get the owned arrayList of books from the database
-        LinkedList<Book> listOfOwnedBooks = RWDatabase.OwnedBooks.get(userId);
+        LinkedList<Book> listOfOwnedBooks = OwnedBooks.get(userId);
         //add all the element in the arrayList to the observableList
         BooksObservableList.addAll(listOfOwnedBooks);
         //adding items to the table to display them
@@ -83,20 +85,20 @@ public class PaneMyLibrary implements Initializable {
             miniPublisher.setText(booksViewTable.getSelectionModel().getSelectedItem().getPublisher());
             miniTotal.setText(booksViewTable.getSelectionModel().getSelectedItem().getTotalPages()+"");
             miniRating.setText(booksViewTable.getSelectionModel().getSelectedItem().getRating()+"");
-            miniDate.setText(booksViewTable.getSelectionModel().getSelectedItem().getDate());
+            miniDate.setText(booksViewTable.getSelectionModel().getSelectedItem().getPublishedDate());
         }
     }
     @FXML
     public void DeleteBook(MouseEvent event) throws IOException {
         //we can't delete the last book in the database to void errors
-        if (RWDatabase.OwnedBooks.get(userId).size() != 1  && booksViewTable.getSelectionModel().getSelectedItem() != null){
+        if (OwnedBooks.get(userId).size() != 1  && booksViewTable.getSelectionModel().getSelectedItem() != null){
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
             //we remove it from the DateBase first
-            RWDatabase.OwnedBooks.get(userId).remove(booksViewTable.getSelectionModel().getSelectedItem());
+            OwnedBooks.get(userId).remove(booksViewTable.getSelectionModel().getSelectedItem());
             //then remove from the Tableview
             booksViewTable.getItems().remove(selectedID);
             //write the data on the txt/csv file cuz we dont have REAL dataBase yet
-            RWDatabase.writeOwnedBooks();
+            writeOwnedBooks();
         }
 //        BookstableViewRefresh() ;
     }

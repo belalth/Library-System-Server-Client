@@ -1,6 +1,7 @@
 package com.librarysytsem; 
 
-import com.librarysytsem.DataBase.* ;
+
+import com.librarysytsem.models.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.librarysytsem.MainUILoginSignup.BooksList;
 import static java.lang.Character.isDigit;
 
 public class PaneBooksTableView implements Initializable {
@@ -67,7 +69,7 @@ public class PaneBooksTableView implements Initializable {
         quanColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         BooksObservableList.clear();
-        RWDatabase.BooksList.forEach((id, book) -> {
+        BooksList.forEach((id, book) -> {
             BooksObservableList.add(book);
         });
 
@@ -84,8 +86,8 @@ public class PaneBooksTableView implements Initializable {
         BookSearchBar.textProperty().addListener(a -> {
             ObservableList<Book> filterdList = FXCollections.observableArrayList();
             if ( !BookSearchBar.getText().equals("") && !isString(BookSearchBar.getText())  ){
-                if (RWDatabase.BooksList.containsKey(Integer.parseInt(BookSearchBar.getText()))  && !BookSearchBar.getText().isEmpty()){
-                    Book target = RWDatabase.BooksList.get(Integer.parseInt(BookSearchBar.getText()) );
+                if (BooksList.containsKey(Integer.parseInt(BookSearchBar.getText()))  && !BookSearchBar.getText().isEmpty()){
+                    Book target = BooksList.get(Integer.parseInt(BookSearchBar.getText()) );
                     filterdList.add(target);
                     booksViewTable.setItems(filterdList);
             }
@@ -116,15 +118,14 @@ public class PaneBooksTableView implements Initializable {
     @FXML
     public void delete(MouseEvent event) throws IOException {
         //we can't delete the last book in the database to void errors
-        if (RWDatabase.BooksNumber != 1 && booksViewTable.getSelectionModel().getSelectedItem().getId() != 0 && booksViewTable.getSelectionModel().getSelectedItem() != null){
+        if (BooksList.size() != 1 && booksViewTable.getSelectionModel().getSelectedItem().getId() != 0 && booksViewTable.getSelectionModel().getSelectedItem() != null){
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
             //we remove it from the DateBase first
-            RWDatabase.BooksList.remove(booksViewTable.getSelectionModel().getSelectedItem().getId());
+            BooksList.remove(booksViewTable.getSelectionModel().getSelectedItem().getId());
             //then remove from the Tableview
             booksViewTable.getItems().remove(selectedID);
-            RWDatabase.BooksNumber-- ;
             //write the data on the txt/csv file cuz we dont have REAL dataBase yet
-            RWDatabase.doWrite();
+            doWrite();
         }
 //        BookstableViewRefresh() ;
     }
@@ -139,27 +140,27 @@ public class PaneBooksTableView implements Initializable {
             miniPublisher.setText(booksViewTable.getSelectionModel().getSelectedItem().getPublisher());
             miniTotal.setText(booksViewTable.getSelectionModel().getSelectedItem().getTotalPages()+"");
             miniRating.setText(booksViewTable.getSelectionModel().getSelectedItem().getRating()+"");
-            miniDate.setText(booksViewTable.getSelectionModel().getSelectedItem().getDate());
+            miniDate.setText(booksViewTable.getSelectionModel().getSelectedItem().getPublishedDate());
         }
     }
     @FXML
     public void editBook(ActionEvent event) throws IOException {
         if (booksViewTable.getSelectionModel().getSelectedItem() != null) {
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setTitle(miniTitle.getText());
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setAuthor(miniAuthor.getText());
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setQuantity(Integer.parseInt(miniQuan.getText()));
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setIsbn(miniIsbn.getText());
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setPublisher(miniPublisher.getText());
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setTotal_pages(Integer.parseInt(miniTotal.getText()));
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setRating(Float.parseFloat(miniRating.getText()));
-            RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())).setPublished_date(miniDate.getText());
+            BooksList.get(Integer.parseInt(miniId.getText())).setTitle(miniTitle.getText());
+            BooksList.get(Integer.parseInt(miniId.getText())).setAuthor(miniAuthor.getText());
+            BooksList.get(Integer.parseInt(miniId.getText())).setQuantity(Integer.parseInt(miniQuan.getText()));
+            BooksList.get(Integer.parseInt(miniId.getText())).setIsbn(miniIsbn.getText());
+            BooksList.get(Integer.parseInt(miniId.getText())).setPublisher(miniPublisher.getText());
+            BooksList.get(Integer.parseInt(miniId.getText())).setTotalPages(Integer.parseInt(miniTotal.getText()));
+            BooksList.get(Integer.parseInt(miniId.getText())).setRating(Float.parseFloat(miniRating.getText()));
+            BooksList.get(Integer.parseInt(miniId.getText())).setPublishedDate(miniDate.getText());
 
             BookEdittedMssg.setText("Book's Data Changed successfully!");
             //make changes on the table view
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
-            booksViewTable.getItems().set(selectedID , RWDatabase.BooksList.get(Integer.parseInt(miniId.getText())));
+            booksViewTable.getItems().set(selectedID , BooksList.get(Integer.parseInt(miniId.getText())));
 //           BookstableViewRefresh();
-            RWDatabase.doWrite();
+            doWrite();
         }
     }
 }
