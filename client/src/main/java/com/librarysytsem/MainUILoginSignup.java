@@ -2,6 +2,8 @@
 package com.librarysytsem;
 
 import com.librarysytsem.models.* ;
+
+import javafx.beans.binding.BooleanExpression;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +17,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.util.HashMap;
@@ -27,8 +30,9 @@ import java.util.ResourceBundle;
 import java.util.TreeMap;
 
 
+// import static com.librarysytsem.Launcher.socketConnection;
 
-public class MainUILoginSignup implements Initializable {
+public class MainUILoginSignup  implements Initializable {
     @FXML
     private TextField textfield_id_welcome;
     @FXML
@@ -53,37 +57,68 @@ public class MainUILoginSignup implements Initializable {
     private Stage stage;
     private Scene scene;
 
-    public static TreeMap<Integer, Book> BooksList = new TreeMap<>();
-    public static TreeMap<Integer, User> UsersList = new TreeMap<>();
-    public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
-    public static HashMap<String , String> usernameNdPassInput  = new HashMap<>();
+    public static TreeMap<Integer, Book> BooksList  = new TreeMap<Integer, Book>();
+    public static TreeMap<Integer, User> UsersList = new TreeMap<Integer, User>();
+    public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<Integer, LinkedList<Book>>();
+
+    public static Long TOKEN = 0L;
+ ; 
+    
     /**
      * Start login window
      * when the user enter the id number and pass.
      * to log in the main menu of users .
      * Or the main menu for Admins.
+     * @throws ClassNotFoundException
      */
-    public void swithslogin(ActionEvent event) throws IOException {
+    public static ObjectInputStream inputFromServer  = null ;
+    public static ObjectOutputStream outputToServer  = null   ;
+   
+    
+    public void swithslogin(ActionEvent event) throws IOException, ClassNotFoundException {
+        text_loginStart_Windows.setText("");
+        HashMap<String , String> usernameNdPassInput  = new HashMap<>();
+        boolean isAuthenticated  = false ; 
+
+        String password = textfield_pass_welcome.getText() ;
         String id = textfield_id_welcome.getText();
-        String password = textfield_pass_welcome.getText();
-        usernameNdPassInput.put(id , password);
 
-        
+        usernameNdPassInput.put("username" ,id );
+        usernameNdPassInput.put("password" , password);        
+    
+        if ( (!id.isEmpty() || !password.isEmpty()) && isNumeric(id)) {
+            outputToServer.writeObject(usernameNdPassInput);
+            outputToServer.flush();
+            TOKEN = (Long)inputFromServer.readObject();  
+            isAuthenticated = (boolean) inputFromServer.readObject() ; 
 
-        
-
-       
-//        if (id.isEmpty() || password.isEmpty()) {
-//            text_loginStart_Windows.setText("Please fill The Empty slots!");
-//        } else if (UsersList.containsKey(Integer.parseInt(id)) && password.equals(UsersList.get(Integer.parseInt(id)).getPassword())) {
-//            PaneMyLibrary.initializeId(Integer.parseInt(id), UsersList.get(Integer.parseInt(id)).getFirstName());
-//            loadScene("MainUIUsers.fxml", event);
-//        } else if (id.equals("1111") && password.equals("admin")) {
-//            loadScene("MainUIAdmin.fxml", event);
-//        } else {
-//            text_loginStart_Windows.setText("Wrong Id or password, Please Try Again.");
-//        }
+       } 
+       else {
+            text_loginStart_Windows.setText("Wrong Id or password, Please Try Again.");
+       }
+       if (isAuthenticated && TOKEN != 0L){
+            System.out.println(TOKEN);
+            loadScene("MainUIAdmin.fxml" , event  ); ; 
+            
+            
+            
+       }
+    
     }
+    
+    /**
+     * Create a new user Windows
+     * you need to abstract the id text field to make it only for Integers
+     * maximum id integer digits is 5 */
+    public static boolean isNumeric(String str) { 
+        try {  
+          Double.parseDouble(str);  
+          return true;
+        } catch(NumberFormatException e){  
+          return false;  
+        }  
+      }
+
 
     private void loadScene(String fxml, ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
@@ -175,27 +210,22 @@ public class MainUILoginSignup implements Initializable {
         stage.show();
     }
 
-    public void closeButton(MouseEvent event) {
+    public void closeButton(MouseEvent event) throws IOException {
+        Launcher.socket.close();
         System.exit(1 );
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // TODO Auto-generated method stub
-        try(Socket socket = new Socket("localhost", 8000)){
-            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-            // outputStream.writeObject(usernameNdPassInput);
-
-            DataInputStream token = new DataInputStream(socket.getInputStream());
-            DataInputStream approved = new DataInputStream(socket.getInputStream());
-
-            if (approved.readBoolean()){
-                System.out.println("approved");
-                System.out.println(token.readLong());
-            }
-
-        }catch (IOException e){
-        System.out.println("MainUILoginSignup.initialize()");
+        Launcher.socket = new Socket();
+        try {
+            Launcher.socket.connect(new InetSocketAddress("localhost", 8000));
+            outputToServer = new ObjectOutputStream(Launcher.socket.getOutputStream());
+            inputFromServer = new ObjectInputStream(Launcher.socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
-    }
+
 }

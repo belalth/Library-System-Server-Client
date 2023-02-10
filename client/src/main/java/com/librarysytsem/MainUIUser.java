@@ -46,6 +46,7 @@ public class MainUIUser implements Initializable {
         loadPage("PaneMyLibrary");
     }
     public void LogOut(MouseEvent event) throws IOException {
+        Launcher.socket.close();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -64,7 +65,8 @@ public class MainUIUser implements Initializable {
         catch(IOException ignored){
         }
     }
-    public void closeButton(MouseEvent event) {
+    public void closeButton(MouseEvent event) throws IOException {
+        Launcher.socket.close();
         System.exit(1 );
     }
 

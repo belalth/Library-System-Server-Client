@@ -19,7 +19,7 @@
          <children>
             <TextField fx:id="textfield_id_welcome" focusTraversable="false" layoutX="71.0" layoutY="145.0" prefHeight="31.0" prefWidth="214.0" promptText="123456" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
             <PasswordField fx:id="textfield_pass_welcome" focusTraversable="false" layoutX="71.0" layoutY="195.0" onAction="#loginTextFieldAction" prefHeight="31.0" prefWidth="214.0" promptText="password" style="-fx-background-color: #dcdcdc; -fx-border-color: #4774B3; -fx-border-width: 0px 0px 1px 0px;" />
-            <Button fx:id="login_welcome" defaultButton="true" layoutX="65.0" layoutY="251.0" mnemonicParsing="false" onAction="#swithslogin" onKeyTyped="#swithslogin" prefHeight="31.0" prefWidth="226.0" style="-fx-background-color: #4774B3; -fx-font-family: Helvetica (sans-serif);" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="login_welcome" defaultButton="true" layoutX="65.0" layoutY="251.0" mnemonicParsing="false" onAction="#swithslogin" prefHeight="31.0" prefWidth="226.0" style="-fx-background-color: #4774B3; -fx-font-family: Helvetica (sans-serif);" text="Login" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold Italic" size="15.0" />
                </font>

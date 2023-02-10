@@ -62,6 +62,7 @@ public class MainUIAdmin implements Initializable {
     }
     @FXML
     private void LogOut(MouseEvent event) throws IOException {
+        Launcher.socket.close();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         stage.setScene(new Scene(root));
@@ -80,7 +81,8 @@ public class MainUIAdmin implements Initializable {
         }
     }
 
-    public  void closeButton(MouseEvent event) {
+    public  void closeButton(MouseEvent event) throws IOException {
+        Launcher.socket.close();
         System.exit(1 );
     }
 

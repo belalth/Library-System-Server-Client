@@ -1,31 +1,31 @@
 package com.librarysytsem;
 
 
-import com.librarysytsem.database.* ;
 
+import com.librarysytsem.database.*  ;
 import java.io.*;
 import java.util.*;
 
-public class RWDatabase {
-    public static TreeMap<Integer, Book> BooksList = new TreeMap<>();
-    public static TreeMap<Integer, User> UsersList = new TreeMap<>();
-    public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
-    private static final String BOOKS_DATABASE_PATH = "src/main/java/com/librarysytsem/database/books_database.csv";
-    private static final String USERS_DATABASE_PATH = "src/main/java/com/librarysytsem/database/users_database.csv";
-    private static final String RELATION_DATABASE_PATH = "src/main/java/com/librarysytsem/database/UsersBooksRelationDB.csv";
+public class Database {
+    protected final String BOOKS_DATABASE_PATH = "src/main/java/com/librarysytsem/database/books_database.csv";
+    protected final String USERS_DATABASE_PATH = "src/main/java/com/librarysytsem/database/users_database.csv";
+    protected final String RELATION_DATABASE_PATH = "src/main/java/com/librarysytsem/database/UsersBooksRelationDB.csv";
 
-
-    RWDatabase()  {
+    protected  TreeMap<Integer, Book> BooksList = new TreeMap<>();
+    protected  TreeMap<Integer, User> UsersList = new TreeMap<>();
+    protected  HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<>();
+    
+    Database()  {
         loadBooksAndUsers();
         writeBooksAndUsers();
         loadOwnedBooks();
         writeOwnedBooks();
-        System.out.println("TEST PASS");
+        System.out.println("Database loaded successfully");
         // Date dateCreated = new java.util.Date();
     }
 
 
-    public static void loadBooksAndUsers() {
+    public  void loadBooksAndUsers() {
         try (Scanner usersIn = new Scanner(new File(USERS_DATABASE_PATH));
              Scanner booksIn = new Scanner(new File(BOOKS_DATABASE_PATH))) {
             while (usersIn.hasNextLine()) {
@@ -56,7 +56,7 @@ public class RWDatabase {
         }
     }
 
-    public static void writeBooksAndUsers() {
+    public  void writeBooksAndUsers() {
         try (BufferedWriter usersOut = new BufferedWriter(new FileWriter(USERS_DATABASE_PATH, false));
              BufferedWriter booksOut = new BufferedWriter(new FileWriter(BOOKS_DATABASE_PATH, false))) {
             UsersList.forEach((key, value) -> {
@@ -82,7 +82,7 @@ public class RWDatabase {
         }
     }
 
-    public static void loadOwnedBooks() {
+    public  void loadOwnedBooks() {
         try(Scanner input = new Scanner(new File(RELATION_DATABASE_PATH))){
         while(input.hasNext())  {
             String[] tempList = input.nextLine().split(",") ;
@@ -97,7 +97,7 @@ public class RWDatabase {
     }
 }
 
-    public static void writeOwnedBooks()   {
+    public  void writeOwnedBooks()   {
         try (FileWriter fileWriter = new FileWriter(RELATION_DATABASE_PATH, false);
              BufferedWriter out = new BufferedWriter(fileWriter)) {
             OwnedBooks.forEach((key, value) -> {

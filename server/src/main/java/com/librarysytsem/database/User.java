@@ -1,6 +1,8 @@
 package com.librarysytsem.database;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private int id = -1;
     private String email;
     private String password;
