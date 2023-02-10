@@ -15,13 +15,13 @@ public class RWDatabase {
     private static final String RELATION_DATABASE_PATH = "src/main/java/com/librarysytsem/database/UsersBooksRelationDB.csv";
 
 
-    public static void main(String[] args) throws Exception {
+    RWDatabase()  {
         loadBooksAndUsers();
         writeBooksAndUsers();
         loadOwnedBooks();
         writeOwnedBooks();
         System.out.println("TEST PASS");
-        Date dateCreated = new java.util.Date();
+        // Date dateCreated = new java.util.Date();
     }
 
 
@@ -52,11 +52,11 @@ public class RWDatabase {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage()+ ":loading users/books data failed ");;
         }
     }
 
-    public static void writeBooksAndUsers() throws IOException {
+    public static void writeBooksAndUsers() {
         try (BufferedWriter usersOut = new BufferedWriter(new FileWriter(USERS_DATABASE_PATH, false));
              BufferedWriter booksOut = new BufferedWriter(new FileWriter(BOOKS_DATABASE_PATH, false))) {
             UsersList.forEach((key, value) -> {
@@ -64,7 +64,7 @@ public class RWDatabase {
                     try {
                         usersOut.write(value.getId() + "," + value.getEmail() + "," + value.getPassword() + "," + value.getFirstName() + "," + value.getLastName() + "," + value.getAge() + "\n");
                     } catch (IOException e) {
-                        throw new UncheckedIOException(e);
+                      System.out.println(e.getMessage() ); ;
                     }
                 }
             });
@@ -73,14 +73,16 @@ public class RWDatabase {
                     try {
                         booksOut.write(value.getId() + "," + value.getTitle() + "," + value.getAuthor() + "," + value.getIsbn() + "," + value.getPublisher() + "," + value.getTotalPages() + "," + value.getRating() + "," + value.getPublishedDate() + "," + value.getQuantity() + "\n");
                     } catch (IOException e) {
-                        throw new UncheckedIOException(e);
+                        System.out.println(e.getMessage());
                     }
                 }
             });
+        }catch(IOException e) {
+            System.out.println(e.getMessage() + ":writing on books/users datavase failed");
         }
     }
 
-    public static void loadOwnedBooks() throws FileNotFoundException {
+    public static void loadOwnedBooks() {
         try(Scanner input = new Scanner(new File(RELATION_DATABASE_PATH))){
         while(input.hasNext())  {
             String[] tempList = input.nextLine().split(",") ;
@@ -90,9 +92,12 @@ public class RWDatabase {
             }
             OwnedBooks.put(Integer.parseInt(tempList[0]) ,usersArr);
         }
-    }}
+     }catch(Exception e){
+        System.out.println(e.getMessage() + ":loading UsersBooksRelationDB.csv failed"  );
+    }
+}
 
-    public static void writeOwnedBooks() throws IOException {
+    public static void writeOwnedBooks()   {
         try (FileWriter fileWriter = new FileWriter(RELATION_DATABASE_PATH, false);
              BufferedWriter out = new BufferedWriter(fileWriter)) {
             OwnedBooks.forEach((key, value) -> {
@@ -106,6 +111,8 @@ public class RWDatabase {
                     throw new RuntimeException(e);
                 }
             });
+        }catch(IOException e) {
+            System.out.println(e.getMessage()  + ":write to owned books db failed");
         }
     }
 }
