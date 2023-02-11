@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.TreeMap;
 
+import com.librarysytsem.database.Book;
 import com.librarysytsem.database.User;
-
-import javafx.scene.chart.PieChart.Data;
 
 
 
@@ -47,62 +46,73 @@ public class LibraryServer {
 
 
 class HandleClient extends LibraryServer implements Runnable {
+    private static final long TOKEN_AUTH_ADMIN = 111L;
     private final Socket socket;
     private ObjectInputStream inputFromClient;
     private ObjectOutputStream outputToClient;
 
-    HandleClient(Socket socket)  {
+    HandleClient(Socket socket) {
         this.socket = socket;
-        try {
-            outputToClient = new ObjectOutputStream(socket.getOutputStream());
-            inputFromClient = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException e) {
-            System.out.println(e.getMessage() + " can't open Streams ");
-
-        }
-        
     }
 
     @Override
-    public void run(){
-        while (true) {
-            try {
-                Object data = inputFromClient.readObject();
-                if (data instanceof HashMap && validate((HashMap<String, String>) data)) {
-                    sendData(TokenAuth.generateToken());
-                    sendData(true);
-                    sendData(Database.UsersList);   
-                    sendData(Database.BooksList);
-                    sendData(Database.OwnedBooks); 
-                    socket.close(); 
-                    break;
-                } else {
-                    sendData(0L);
-                    sendData(false);
-                }  
-            } catch (IOException | ClassNotFoundException e) {
-                System.out.println(e.getMessage());
-                break;
+    public void run() {
+        try {
+            outputToClient = new ObjectOutputStream(socket.getOutputStream());
+            inputFromClient = new ObjectInputStream(socket.getInputStream());
+            
+            while(true){
+                HashMap<String, String> data = (HashMap<String, String>) inputFromClient.readObject();
+            
+            if (data.get("username").equals("111") && data.get("password").equals("111")) {
+                sendData(TOKEN_AUTH_ADMIN);
+                sendData(true);
+                sendData(true);
+                sendGroupData();
+                receiveWrite();
+            } else if (data instanceof HashMap && validate(data)) {
+                sendData(TokenAuth.generateToken());
+                sendData(true);
+                sendData(false);
+                sendGroupData();
+                receiveWrite();
+            } else {
+                sendData(0L);
+                sendData(false);
+                sendData(false);
+                }
             }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            closeConnection();
         }
-        closeConnection();
+    }
+
+    private void receiveWrite() throws ClassNotFoundException, IOException {
+        Database.UsersList = (TreeMap<Integer, User>) inputFromClient.readObject();   
+        Database.BooksList = (TreeMap<Integer, Book>) inputFromClient.readObject();
+        Database.OwnedBooks = (HashMap<Integer, LinkedList<Book>>) inputFromClient.readObject(); 
+        Database.writeBooksAndUsers();
+        Database.writeOwnedBooks();
+    }
+
+    private void sendGroupData() throws IOException {
+        sendData(Database.UsersList);   
+        sendData(Database.BooksList);
+        sendData(Database.OwnedBooks); 
     }
 
     private boolean validate(HashMap<String, String> receivedMap) {
         Integer username = Integer.parseInt(receivedMap.get("username"));
         String password = receivedMap.get("password");
-        return Database.UsersList.containsKey(username) && Database.UsersList.get(username).getPassword().equals(password);
+        return Database.UsersList.containsKey(username) && 
+               Database.UsersList.get(username).getPassword().equals(password);
     }
 
-    private void sendData(Object data)  {
-        
-        try {
-            outputToClient.writeObject(data);
-            outputToClient.flush();
-        } catch (IOException e) {
-            System.out.println(e.getMessage() + " cant send data");
-
-        }
+    private void sendData(Object data) throws IOException {
+        outputToClient.writeObject(data);
+        outputToClient.flush();
     }
 
     private void closeConnection() {
@@ -115,7 +125,7 @@ class HandleClient extends LibraryServer implements Runnable {
         }
     }
 }
-  
+
 
 /**
  * TokenAuth

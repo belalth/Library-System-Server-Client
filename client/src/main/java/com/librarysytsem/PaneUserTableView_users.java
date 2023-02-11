@@ -25,39 +25,22 @@ import static com.librarysytsem.MainUILoginSignup.OwnedBooks;
 import static java.lang.Character.isDigit;
 
 public class PaneUserTableView_users implements Initializable {
-    @FXML
-    private TextField miniAuthor;
-    @FXML
-    private TextField miniDate;
-    @FXML
-    private TextField miniId;
-    @FXML
-    private TextField miniIsbn;
-    @FXML
-    private ImageView miniPicture;
-    @FXML
-    private TextField miniPublisher;
-    @FXML
-    private TextField miniQuan;
-    @FXML
-    private TextField miniRating;
-    @FXML
-    private TextField miniTitle;
-    @FXML
-    private TextField miniTotal;
-    @FXML
-    TableView<Book> booksViewTable ;
-    @FXML
-    TableColumn<Book , Integer> idColumn ;
-    @FXML
-    TableColumn<Book , String> nameColumn  ;;
-    @FXML
-    TableColumn<Book , Integer> quanColumn ; ;
-    @FXML
-    TextField BookSearchBar ;
-    @FXML
-    Text textMessage ;
-
+    @FXML private TextField miniAuthor;
+    @FXML private TextField miniDate;
+    @FXML private TextField miniId;
+    @FXML private TextField miniIsbn;
+    @FXML private ImageView miniPicture;
+    @FXML private TextField miniPublisher;
+    @FXML private TextField miniQuan;
+    @FXML private TextField miniRating;
+    @FXML private TextField miniTitle;
+    @FXML private TextField miniTotal;
+    @FXML TableView<Book> booksViewTable ;
+    @FXML TableColumn<Book , Integer> idColumn ;
+    @FXML TableColumn<Book , String> nameColumn  ;;
+    @FXML TableColumn<Book , Integer> quanColumn ; ;
+    @FXML TextField BookSearchBar ;
+    @FXML Text textMessage ;
 
     /**
      * adding the content of the treeMap to an ObservableList when initializing the program
@@ -126,15 +109,8 @@ public class PaneUserTableView_users implements Initializable {
             textMessage.setText("You Have This Book Already!");
         }
          else if (booksViewTable.getSelectionModel().getSelectedItem() != null){
-            //adding the book to the library of user
             OwnedBooks.get(PaneMyLibrary.userId).add(booksViewTable.getSelectionModel().getSelectedItem());
-            //using the dicresing method to dicrease books quantity-1
             BooksList.get(booksViewTable.getSelectionModel().getSelectedItem().getId()).decreaseQuantity();
-            //writing the edited book with quantity-1
-//            doWrite();
-            //write the relation DB
-//            writeOwnedBooks();
-            //make changes on the tableView
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
             booksViewTable.getItems().set(selectedID , BooksList.get(Integer.parseInt(miniId.getText())));
 
