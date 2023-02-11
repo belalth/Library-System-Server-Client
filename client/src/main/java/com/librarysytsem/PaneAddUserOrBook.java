@@ -1,6 +1,5 @@
 package com.librarysytsem; 
 
-
 import com.librarysytsem.database.Book;
 import com.librarysytsem.database.User;
 import javafx.event.ActionEvent;
@@ -16,38 +15,22 @@ import static com.librarysytsem.MainUILoginSignup.OwnedBooks;
 
 
 public class PaneAddUserOrBook {
-    @FXML
-    private TextField textfield_id_create;
-    @FXML
-    private TextField Textfirst_create;
-    @FXML
-    private TextField Textsecond_create;
-    @FXML
-    private TextField Textgmail_create;
-    @FXML
-    private TextField Textage_create;
-    @FXML
-    private TextField Textpass_create;
-    @FXML
-    private Label print_create;
-    @FXML
-    private TextField title_new_book ;
-    @FXML
-    private TextField auther_new_book ;
-    @FXML
-    private TextField isbn_new_book ;
-    @FXML
-    private TextField publisher_new_book ;
-    @FXML
-    private  TextField total_new_book;
-    @FXML
-    private  TextField rating_new_book;
-    @FXML
-    private  TextField date_new_book;
-    @FXML
-    private  TextField quantity_new_book ;
-    @FXML
-    private Text errorMessage ;
+    @FXML private TextField textfield_id_create;
+    @FXML private TextField Textfirst_create;
+    @FXML private TextField Textsecond_create;
+    @FXML private TextField Textgmail_create;
+    @FXML private TextField Textage_create;
+    @FXML private TextField Textpass_create;
+    @FXML private Label print_create;
+    @FXML private TextField title_new_book ;
+    @FXML private TextField auther_new_book ;
+    @FXML private TextField isbn_new_book ;
+    @FXML private TextField publisher_new_book ;
+    @FXML private TextField total_new_book;
+    @FXML private TextField rating_new_book;
+    @FXML private TextField date_new_book;
+    @FXML private TextField quantity_new_book ;
+    @FXML private Text errorMessage ;
 
     /**
      * adding a new user in the data base from admin scene
@@ -84,15 +67,11 @@ public class PaneAddUserOrBook {
             UsersList.put(tempUser.getId() ,tempUser );
             //adding the uesr id to the relation file
             OwnedBooks.put(tempUser.getId(), new LinkedList<>());
-            //here is adding the user data to the database :
-//            writeUsersData();
-//            writeOwnedBooks();
             print_create.setText("Account Created Successfully :) ");
         }else{
             print_create.setText("Error ! try again");
         }
     }
-
     /**
      * Adding a new Book to the books list in RDatabase
      */
@@ -107,8 +86,6 @@ public class PaneAddUserOrBook {
                 rating_new_book.getText().isEmpty()||
                 date_new_book.getText().isEmpty() ||
                 quantity_new_book.getText().isEmpty()
-
-
         )
             errorMessage.setText("Please Fill The Empty Slots! ");
         else if (BooksList.containsKey(randomeId))
@@ -126,7 +103,6 @@ public class PaneAddUserOrBook {
                             Integer.parseInt(quantity_new_book.getText())
                     )
             );
-//            doWrite();
             errorMessage.setText("Book stored successfully :) ");
         }
     }

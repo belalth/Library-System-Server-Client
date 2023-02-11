@@ -21,32 +21,19 @@ import static com.librarysytsem.MainUILoginSignup.OwnedBooks;;
 
 
 public class PaneMyLibrary implements Initializable {
-    @FXML
-    private TextField miniAuthor;
-    @FXML
-    private TextField miniDate;
-    @FXML
-    private TextField miniId;
-    @FXML
-    private TextField miniIsbn;
-    @FXML
-    private ImageView miniPicture;
-    @FXML
-    private TextField miniPublisher;
-    @FXML
-    private TextField miniRating;
-    @FXML
-    private TextField miniTitle;
-    @FXML
-    private TextField miniTotal;
-    @FXML
-    TableView<Book> booksViewTable ;
-    @FXML
-    TableColumn<Book , Integer> idColumn ;
-    @FXML
-    TableColumn<Book , String> nameColumn  ;;
-    @FXML
-    TableColumn<Book , String> authorColumn ; ;
+    @FXML private TextField miniAuthor;
+    @FXML private TextField miniDate;
+    @FXML private TextField miniId;
+    @FXML private TextField miniIsbn;
+    @FXML private ImageView miniPicture;
+    @FXML private TextField miniPublisher;
+    @FXML private TextField miniRating;
+    @FXML private TextField miniTitle;
+    @FXML private TextField miniTotal;
+    @FXML TableView<Book> booksViewTable ;
+    @FXML TableColumn<Book , Integer> idColumn ;
+    @FXML TableColumn<Book , String> nameColumn  ;;
+    @FXML TableColumn<Book , String> authorColumn ; ;
 
 
     public static  int userId ;

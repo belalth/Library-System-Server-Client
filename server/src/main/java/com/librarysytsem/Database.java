@@ -21,7 +21,6 @@ public class Database {
         loadOwnedBooks();
         writeOwnedBooks();
         System.out.println("Database loaded successfully");
-        // Date dateCreated = new java.util.Date();
     }
 
 

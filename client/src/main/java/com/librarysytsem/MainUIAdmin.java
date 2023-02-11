@@ -20,28 +20,17 @@ import java.util.ResourceBundle;
 
 public class MainUIAdmin implements Initializable {
     public Text text;
-    @FXML
-    private TextField miniAuthor;
-    @FXML
-    private TextField miniDate;
-    @FXML
-    private TextField miniId;
-    @FXML
-    private TextField miniIsbn;
-    @FXML
-    private ImageView miniPicture;
-    @FXML
-    private TextField miniPublisher;
-    @FXML
-    private TextField miniQuan;
-    @FXML
-    private TextField miniRating;
-    @FXML
-    private TextField miniTitle;
-    @FXML
-    private TextField miniTotal;
-    @FXML
-    private BorderPane borderPane ;
+    @FXML private TextField miniAuthor;
+    @FXML private TextField miniDate;
+    @FXML private TextField miniId;
+    @FXML private TextField miniIsbn;
+    @FXML private ImageView miniPicture;
+    @FXML private TextField miniPublisher;
+    @FXML private TextField miniQuan;
+    @FXML private TextField miniRating;
+    @FXML private TextField miniTitle;
+    @FXML private TextField miniTotal;
+    @FXML private BorderPane borderPane ;
 
     //switching the slide scenes
     @FXML

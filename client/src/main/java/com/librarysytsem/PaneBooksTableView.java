@@ -1,6 +1,5 @@
 package com.librarysytsem; 
 
-
 import com.librarysytsem.database.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,38 +22,22 @@ import static com.librarysytsem.MainUILoginSignup.BooksList;
 import static java.lang.Character.isDigit;
 
 public class PaneBooksTableView implements Initializable {
-    @FXML
-    private TextField miniAuthor;
-    @FXML
-    private TextField miniDate;
-    @FXML
-    private TextField miniId;
-    @FXML
-    private TextField miniIsbn;
-    @FXML
-    private ImageView miniPicture;
-    @FXML
-    private TextField miniPublisher;
-    @FXML
-    private TextField miniQuan;
-    @FXML
-    private TextField miniRating;
-    @FXML
-    private TextField miniTitle;
-    @FXML
-    private TextField miniTotal;
-    @FXML
-    TableView<Book> booksViewTable ;
-    @FXML
-    TableColumn<Book , Integer> idColumn ;
-    @FXML
-    TableColumn<Book , String> nameColumn  ;;
-    @FXML
-    TableColumn<Book , Integer> quanColumn ; ;
-    @FXML
-    TextField BookSearchBar ;
-    @FXML
-    Text BookEdittedMssg ;
+    @FXML private TextField miniAuthor;
+    @FXML private TextField miniDate;
+    @FXML private TextField miniId;
+    @FXML private TextField miniIsbn;
+    @FXML private ImageView miniPicture;
+    @FXML private TextField miniPublisher;
+    @FXML private TextField miniQuan;
+    @FXML private TextField miniRating;
+    @FXML private TextField miniTitle;
+    @FXML private TextField miniTotal;
+    @FXML TableView<Book> booksViewTable ;
+    @FXML TableColumn<Book , Integer> idColumn ;
+    @FXML TableColumn<Book , String> nameColumn  ;;
+    @FXML TableColumn<Book , Integer> quanColumn ; ;
+    @FXML TextField BookSearchBar ;
+    @FXML Text BookEdittedMssg ;
 
     /**
      * adding the content of the treeMap to an ObservableList when initializing the program
@@ -114,7 +97,6 @@ public class PaneBooksTableView implements Initializable {
         return true ;
     }
 
-
     @FXML
     public void delete(MouseEvent event) throws IOException {
         //we can't delete the last book in the database to void errors
@@ -124,10 +106,8 @@ public class PaneBooksTableView implements Initializable {
             BooksList.remove(booksViewTable.getSelectionModel().getSelectedItem().getId());
             //then remove from the Tableview
             booksViewTable.getItems().remove(selectedID);
-            //write the data on the txt/csv file cuz we dont have REAL dataBase yet
-//            doWrite();
         }
-//        BookstableViewRefresh() ;
+
     }
     @FXML
     private void selectedItem(MouseEvent event) {
@@ -159,8 +139,6 @@ public class PaneBooksTableView implements Initializable {
             //make changes on the table view
             int selectedID = booksViewTable.getSelectionModel().getSelectedIndex();
             booksViewTable.getItems().set(selectedID , BooksList.get(Integer.parseInt(miniId.getText())));
-//           BookstableViewRefresh();
-//            doWrite();
         }
     }
 }

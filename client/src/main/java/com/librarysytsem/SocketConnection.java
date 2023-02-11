@@ -1,12 +1,9 @@
 package com.librarysytsem;
 
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-
-
 
 public class SocketConnection {
     private  Socket socket;
@@ -82,30 +79,3 @@ public class SocketConnection {
     }
 }
 
-
-class ServerConnection {
-    // public static void main(String[] args) throws IOException, ClassNotFoundException {
-    //     SocketConnection sc = new SocketConnection("localhost", 8000);
-
-    //     HashMap<String,String> map = new HashMap<>();
-    //     map.put("username", "1147");
-    //     map.put("password", "mshaat");
-        
-
-    //     sc.sendData (map);
-       
-    //     Object data = sc.receiveData();
-    //     data = sc.receiveData();
-    
-        
-    //     System.out.println(users);
-    //     System.out.println(Books);
-    //     System.out.println(ownedBooks);
-        
-        
-            
-                  
-
-        
-    // }        
-    } 

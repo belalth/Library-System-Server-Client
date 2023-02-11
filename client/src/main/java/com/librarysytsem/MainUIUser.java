@@ -17,14 +17,9 @@ import java.util.ResourceBundle;
 
 public class MainUIUser implements Initializable {
     public Text text;
-    @FXML
-    private BorderPane bp ;
-
-    @FXML
-    private Text welcomName;
-
-    @FXML
-    private Text welcomUserId;
+    @FXML private BorderPane bp ;
+    @FXML private Text welcomName;
+    @FXML private Text welcomUserId;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

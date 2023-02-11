@@ -20,30 +20,18 @@ import static com.librarysytsem.MainUILoginSignup.UsersList;
 import static java.lang.Character.isDigit;
 
 public class PaneUsersTableView implements Initializable {
-    @FXML
-    private TextField showAge;
-    @FXML
-    private TextField showFirst;
-    @FXML
-    private TextField showGmail;
-    @FXML
-    private TextField showId;
-    @FXML
-    private TextField showLast;
-    @FXML
-    private TextField showPass;
-    @FXML
-    TableView<User> usersTableView;
-    @FXML
-    TableColumn<User , Integer> id ;
-    @FXML
-    TableColumn<User , String> name  ;;
-    @FXML
-    TableColumn<User , String> quan ; ;
-    @FXML
-    TextField usersSearchBar;
-    @FXML
-    Text userChanged ;
+    @FXML private TextField showAge;
+    @FXML private TextField showFirst;
+    @FXML private TextField showGmail;
+    @FXML private TextField showId;
+    @FXML private TextField showLast;
+    @FXML private TextField showPass;
+    @FXML TableView<User> usersTableView;
+    @FXML TableColumn<User , Integer> id ;
+    @FXML TableColumn<User , String> name  ;;
+    @FXML TableColumn<User , String> quan ; ;
+    @FXML TextField usersSearchBar;
+    @FXML Text userChanged ;
 
 
     private final ObservableList<User> usersObservableList = FXCollections.observableArrayList();
@@ -113,8 +101,6 @@ public class PaneUsersTableView implements Initializable {
             //remove the user from the relations dataBase
            OwnedBooks.remove(usersTableView.getSelectionModel().getSelectedItem().getId());
             usersTableView.getItems().remove(selectedID);
-//            writeUsersData();
-//            writeOwnedBooks();
         }
     }
 
@@ -132,7 +118,6 @@ public class PaneUsersTableView implements Initializable {
             //we edit directly to the table view without any refreshing or more complexity
             usersTableView.getItems().set(selectedID , UsersList.get(Integer.parseInt(showId.getText())));
             //write the data to the database in sure that its complexity is not accountable
-//            writeUsersData();
         }
     }
 
