@@ -1,8 +1,8 @@
 package com.librarysytsem; 
 
 
-import com.librarysytsem.models.Book;
-import com.librarysytsem.models.User;
+import com.librarysytsem.database.Book;
+import com.librarysytsem.database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

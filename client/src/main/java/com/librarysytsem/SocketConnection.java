@@ -1,19 +1,15 @@
 package com.librarysytsem;
 
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.TreeMap;
-
-import com.librarysytsem.models.User;
-import com.librarysytsem.models.Book;
 
 
 
 public class SocketConnection {
-    private Socket socket;
+    private  Socket socket;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
     private final String host;
@@ -23,6 +19,9 @@ public class SocketConnection {
         this.host = host;
         this.port = port;
         connect();
+    }
+    public boolean isClosed() {
+        return socket.isClosed();
     }
 
     private void connect() {
@@ -52,22 +51,15 @@ public class SocketConnection {
         }
     }
 
-    public boolean available()   {
-        try {
-            return inputStream.available() > 0;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-           return false ; 
-        }   
-    }
-
-    public void closeConnection()  {
+    public void closeConnection() throws IOException  {
         try {
             outputStream.close();
             inputStream.close();
-            socket.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            socket.close(); ; 
+        } 
+        finally
+        {
+            socket.close(); ; 
         }
         
     }
@@ -92,29 +84,28 @@ public class SocketConnection {
 
 
 class ServerConnection {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        SocketConnection sc = new SocketConnection("localhost", 8000);
+    // public static void main(String[] args) throws IOException, ClassNotFoundException {
+    //     SocketConnection sc = new SocketConnection("localhost", 8000);
 
-        HashMap<String,String> map = new HashMap<>();
-        map.put("username", "1147");
-        map.put("password", "mshaat");
-        TreeMap<Integer, User> testMap = new TreeMap<>() ; 
-        System.out.println(sc.receiveData());; 
-        sc.sendData (map);
+    //     HashMap<String,String> map = new HashMap<>();
+    //     map.put("username", "1147");
+    //     map.put("password", "mshaat");
         
+
+    //     sc.sendData (map);
        
-        Object data = sc.receiveData();
-        System.out.println(data);
-        data = sc.receiveData();
-        System.out.println(data);
-        TreeMap<Integer, User> receivedTreeMap = (TreeMap<Integer, User>) sc.receiveData();
-        // System.out.println(receivedTreeMap);
+    //     Object data = sc.receiveData();
+    //     data = sc.receiveData();
+    
         
-           
+    //     System.out.println(users);
+    //     System.out.println(Books);
+    //     System.out.println(ownedBooks);
+        
         
             
                   
 
         
-    }        
+    // }        
     } 

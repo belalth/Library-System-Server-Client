@@ -1,4 +1,4 @@
-package com.librarysytsem;
+package com.librarysytsem.database;
 
 import java.io.Serializable;
 

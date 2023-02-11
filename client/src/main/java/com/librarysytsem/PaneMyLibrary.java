@@ -1,7 +1,7 @@
 package com.librarysytsem; 
 
 
-import com.librarysytsem.models.Book;
+import com.librarysytsem.database.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-import static com.librarysytsem.MainUILoginSignup.OwnedBooks;
+import static com.librarysytsem.MainUILoginSignup.OwnedBooks;;
 
 
 public class PaneMyLibrary implements Initializable {

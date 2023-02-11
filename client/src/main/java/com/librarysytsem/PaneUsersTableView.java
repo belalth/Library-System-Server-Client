@@ -1,6 +1,6 @@
 package com.librarysytsem; 
 
-import com.librarysytsem.models.User;
+import com.librarysytsem.database.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -51,8 +51,8 @@ public class PaneUsersTableView implements Initializable {
     public  void initialize(URL url, ResourceBundle resourceBundle) {
         //here we initialize the values of the clumns of the table
         id.setCellValueFactory(new PropertyValueFactory<User , Integer>("id"));
-        name.setCellValueFactory(new PropertyValueFactory<User , String>("gmail"));
-        quan.setCellValueFactory(new PropertyValueFactory<User , String>("first"));
+        name.setCellValueFactory(new PropertyValueFactory<User , String>("email"));
+        quan.setCellValueFactory(new PropertyValueFactory<User , String>("firstName"));
         /**
          * adding the content of the treeMap to an ObservableList
          * to add it then in the Table accordingly

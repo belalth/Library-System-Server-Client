@@ -1,9 +1,9 @@
 
 package com.librarysytsem;
 
-import com.librarysytsem.models.* ;
 
-import javafx.beans.binding.BooleanExpression;
+import com.librarysytsem.database.Book;
+import com.librarysytsem.database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +20,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -57,12 +55,12 @@ public class MainUILoginSignup  implements Initializable {
     private Stage stage;
     private Scene scene;
 
-    public static TreeMap<Integer, Book> BooksList  = new TreeMap<Integer, Book>();
-    public static TreeMap<Integer, User> UsersList = new TreeMap<Integer, User>();
-    public static HashMap<Integer, LinkedList<Book>> OwnedBooks = new HashMap<Integer, LinkedList<Book>>();
+    public static TreeMap<Integer, Book> BooksList  ;
+    public static TreeMap<Integer, User> UsersList  ;
+    public static HashMap<Integer, LinkedList<Book>> OwnedBooks ;
+    public static HashMap<String , String> usernameNdPassInput ; 
 
     public static Long TOKEN = 0L;
- ; 
     
     /**
      * Start login window
@@ -75,9 +73,17 @@ public class MainUILoginSignup  implements Initializable {
     public static ObjectOutputStream outputToServer  = null   ;
    
     
-    public void swithslogin(ActionEvent event) throws IOException, ClassNotFoundException {
+    public void swithslogin(ActionEvent event) throws IOException, ClassNotFoundException {   
+
+        
+        if (Launcher.connection.isClosed()){
+            
+            Launcher.connection.reconnect();
+        }
+        
+        
         text_loginStart_Windows.setText("");
-        HashMap<String , String> usernameNdPassInput  = new HashMap<>();
+        usernameNdPassInput  = new HashMap<>();
         boolean isAuthenticated  = false ; 
 
         String password = textfield_pass_welcome.getText() ;
@@ -85,26 +91,31 @@ public class MainUILoginSignup  implements Initializable {
 
         usernameNdPassInput.put("username" ,id );
         usernameNdPassInput.put("password" , password);        
-    
+        
+       
+       
+
         if ( (!id.isEmpty() || !password.isEmpty()) && isNumeric(id)) {
-            outputToServer.writeObject(usernameNdPassInput);
-            outputToServer.flush();
-            TOKEN = (Long)inputFromServer.readObject();  
-            isAuthenticated = (boolean) inputFromServer.readObject() ; 
+            Launcher.connection.sendData(usernameNdPassInput);
+            TOKEN =  (Long) Launcher.connection.receiveData();
+            isAuthenticated = (boolean) Launcher.connection.receiveData(); ; 
+
 
        } 
        else {
             text_loginStart_Windows.setText("Wrong Id or password, Please Try Again.");
        }
        if (isAuthenticated && TOKEN != 0L){
+            UsersList = (TreeMap<Integer, User>) Launcher.connection.receiveData();
+            BooksList  = (TreeMap<Integer, Book>) Launcher.connection.receiveData();
+            OwnedBooks = (HashMap<Integer, LinkedList<Book>>) Launcher.connection.receiveData(); 
             System.out.println(TOKEN);
-            loadScene("MainUIAdmin.fxml" , event  ); ; 
-            
-            
+            PaneMyLibrary.initializeId(Integer.parseInt(usernameNdPassInput.get("username" )), usernameNdPassInput.get("password" ));
+            loadScene("MainUIUsers.fxml" , event  ); ;   
             
        }
     
-    }
+    } 
     
     /**
      * Create a new user Windows
@@ -211,20 +222,13 @@ public class MainUILoginSignup  implements Initializable {
     }
 
     public void closeButton(MouseEvent event) throws IOException {
-        Launcher.socket.close();
+        Launcher.connection.closeConnection();
         System.exit(1 );
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        Launcher.socket = new Socket();
-        try {
-            Launcher.socket.connect(new InetSocketAddress("localhost", 8000));
-            outputToServer = new ObjectOutputStream(Launcher.socket.getOutputStream());
-            inputFromServer = new ObjectInputStream(Launcher.socket.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       
         
     }
 

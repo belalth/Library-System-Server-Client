@@ -1,6 +1,5 @@
 package com.librarysytsem;
 
-
 import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -8,113 +7,105 @@ import java.net.Socket;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.TreeMap;
+
+import com.librarysytsem.database.User;
+
+import javafx.scene.chart.PieChart.Data;
 
 
 
+public class LibraryServer {
+    private static final int PORT = 8000;
+    protected static  Database Database =new Database() ;
+    private static int clientNo = 0;
 
-public class LibraryServer extends Database {
-    //start loading books/users data from database
-    //check everything is loaded correctly
-    public static LibraryServer Server ;
-    LibraryServer(){
-        super();
-    }
     public static void main(String[] args) {
-        Server = new LibraryServer();
-        Server.startServer();
+        startServer();
+
     }
 
-    public void startServer()  {        
-        int clientNo = 0;
-        try (ServerSocket serverSocket = new ServerSocket(8000)) {
+    private static void startServer() {
+        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             System.out.println("MultiThread server started at " + new Date());
-            
-
             while (true) {
-                Socket socket = serverSocket.accept(); 
-                clientNo++;
-                InetAddress inetAddress = socket.getInetAddress();
-                System.out.println("Client " + clientNo + " connected with IP: " + inetAddress.getHostAddress() +
-                        " , Hostname: " + inetAddress.getHostName());
-
-                new Thread(new HandleClient(socket)).start();
+                Socket socket = serverSocket.accept();
+                handleClient(socket);
             }
+        } catch (IOException e) {
+            System.out.println("Starting the server failed: " + e.getMessage());
         }
-        catch (IOException e) {
-           System.out.println("STARTING THE SERVER FAILED \n" + e.getMessage());
-        }
-       
+    }
+
+    private static void handleClient(Socket socket) {
+        InetAddress inetAddress = socket.getInetAddress();
+        System.out.println("Client " + (++clientNo) + " connected with IP: " + inetAddress.getHostAddress() +
+                ", Hostname: " + inetAddress.getHostName());
+        new Thread(new HandleClient(socket)).start();
     }
 }
 
 
 class HandleClient extends LibraryServer implements Runnable {
     private final Socket socket;
-    private ObjectInputStream inputFromClient = null ;
-    private ObjectOutputStream outputToClient = null ;
+    private ObjectInputStream inputFromClient;
+    private ObjectOutputStream outputToClient;
 
-    HandleClient(Socket socket) {
+    HandleClient(Socket socket)  {
         this.socket = socket;
         try {
-            inputFromClient = new ObjectInputStream(( socket).getInputStream());
+            outputToClient = new ObjectOutputStream(socket.getOutputStream());
+            inputFromClient = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + " can't open Streams ");
+
         }
-        try {
-            outputToClient = new ObjectOutputStream((socket).getOutputStream()) ;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        
     }
 
     @Override
     public void run(){
-
-        while (true){
-
-            if (!validate((HashMap<String,String>) receiveData())) {
-                System.out.println("not valid"); 
-                sendData((Long)0L);
-                flushOutput();
-                sendData(false);
-                flushOutput();
-                
-
-            } else {
-                System.out.println("valid ");
-                sendData(TokenAuth.generateToken());
-                flushOutput();
-                sendData(true);
-                flushOutput();
-                break; 
-            } 
+        while (true) {
+            try {
+                Object data = inputFromClient.readObject();
+                if (data instanceof HashMap && validate((HashMap<String, String>) data)) {
+                    sendData(TokenAuth.generateToken());
+                    sendData(true);
+                    sendData(Database.UsersList);   
+                    sendData(Database.BooksList);
+                    sendData(Database.OwnedBooks); 
+                    socket.close(); 
+                    break;
+                } else {
+                    sendData(0L);
+                    sendData(false);
+                }  
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println(e.getMessage());
+                break;
+            }
         }
-    }
-    //check if the user in the database
-    public boolean validate(HashMap<String,String>  receivedMap){
-        Integer username = Integer.parseInt(receivedMap.get("username")) ;
-        String password = receivedMap.get("password") ;
-        return Server.UsersList.containsKey(username) && Server.UsersList.get(username).getPassword().equals(password)  ;
+        closeConnection();
     }
 
-    public void sendData(Object data){
+    private boolean validate(HashMap<String, String> receivedMap) {
+        Integer username = Integer.parseInt(receivedMap.get("username"));
+        String password = receivedMap.get("password");
+        return Database.UsersList.containsKey(username) && Database.UsersList.get(username).getPassword().equals(password);
+    }
+
+    private void sendData(Object data)  {
+        
         try {
             outputToClient.writeObject(data);
+            outputToClient.flush();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + " cant send data");
+
         }
     }
 
-    public Object receiveData()  {
-        try {
-            return inputFromClient.readObject();
-        } catch (ClassNotFoundException | IOException e) {
-            System.out.println(e.getMessage());
-        }
-        return inputFromClient ;  
-    }
-
-    public void closeConnection()   {
+    private void closeConnection() {
         try {
             outputToClient.close();
             inputFromClient.close();
@@ -122,17 +113,9 @@ class HandleClient extends LibraryServer implements Runnable {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        
     }
-    public void flushOutput()  {
-        try {
-            outputToClient.flush();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    } 
-       
-}    
+}
+  
 
 /**
  * TokenAuth

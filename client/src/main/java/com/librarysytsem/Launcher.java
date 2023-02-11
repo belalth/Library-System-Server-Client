@@ -8,13 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
-import java.net.Socket;
+
+
+
 
 public class Launcher extends Application {
-    public static Socket socket ; 
-    
-   
 
+    public static SocketConnection connection ;
+    
     @Override
      public void start(Stage stage) throws Exception {
         stage.setResizable(false);
@@ -23,9 +24,8 @@ public class Launcher extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
 
-      
-        socket = new Socket();
-        
+        connection = new SocketConnection("localhost", 8000);
+    
 
     }
     private static Parent loadFXML(String fxml) throws IOException {
@@ -38,5 +38,6 @@ public class Launcher extends Application {
         
     }
 }
+
 
 
